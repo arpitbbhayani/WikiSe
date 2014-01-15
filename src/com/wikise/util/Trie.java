@@ -1,8 +1,12 @@
 package com.wikise.util;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.*;
 
-public class Trie {
+public class Trie implements Serializable {
 
     /* This object will be either :
      *  1. HashMap
@@ -99,6 +103,7 @@ public class Trie {
     }
 
     public void add(String s, int seekLocation) {
+
         HashMap<Character, Object> curr_node = root;
         for (int i = 0, n = s.length(); i < n; i++) {
             Character c = s.charAt(i);
@@ -118,5 +123,13 @@ public class Trie {
         else {
             seekLocations.add(seekLocation);
         }
+    }
+
+
+    public void serialize(String outFile, Object serializableObject) throws IOException {
+        FileOutputStream fos = new FileOutputStream(outFile);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(serializableObject);
+        oos.close();
     }
 }

@@ -25,7 +25,7 @@ public class WikiSAXParseHandler extends DefaultHandler {
 
     Trie trie = null;
 
-    //TreeSet<String> allStrings = new TreeSet<String>();
+    TreeSet<String> allStrings = new TreeSet<String>();
 
     WikiPageConcise wikiPage = null;
     String wikiPageId = null;
@@ -87,7 +87,8 @@ public class WikiSAXParseHandler extends DefaultHandler {
 
             if ( numberOfPages == 1000 ) {
 
-                //allStrings.addAll(invertedIndex.keySet());
+                allStrings.addAll(invertedIndex.keySet());
+
 
                 for ( String wordInvertedIndex : invertedIndex.keySet() ) {
                     StringBuilder wordToWrite = new StringBuilder(wordInvertedIndex);
@@ -144,19 +145,22 @@ public class WikiSAXParseHandler extends DefaultHandler {
                 }
 
                 int seekLocation = fileIO.writeData(wordToWrite);
-                //System.out.println("Writing : " + wordToWrite + " at : " + seekLocation);
-
                 trie.add(wordInvertedIndex , seekLocation);
 
             }
 
+            allStrings.addAll(invertedIndex.keySet());
+
             numberOfPages = 0;
-            //allStrings.addAll(invertedIndex.keySet());
             invertedIndex.clear();
         }
-
-        //System.out.println("Total words : " + allStrings.size() );
-
         fileIO.close();
+
+        System.out.println("Total  words : " + allStrings.size());
+
+        fileIO.sInitialize();
+        fileIO.dumpSecondary(allStrings, trie);
+        fileIO.sClose();
+
     }
 }

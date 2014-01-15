@@ -4,10 +4,7 @@ package com.wikise.parse;
  * Created by Arpit Bhayani on 11/1/14.
  */
 
-import com.wikise.util.Classifiers;
-import com.wikise.util.FileIO;
-import com.wikise.util.FileReadIO;
-import com.wikise.util.Trie;
+import com.wikise.util.*;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,7 +22,6 @@ public class WikiParse {
 
     String filePath = null;
     Trie trie = null;
-    FileReadIO fileReadIO = null;
 
     /**
      *  This is the constructor for WikiParse
@@ -36,7 +32,6 @@ public class WikiParse {
         /* Default Constructor */
         this.filePath = filePath;
         this.trie = new Trie();
-        this.fileReadIO = new FileReadIO();
     }
 
 
@@ -66,11 +61,5 @@ public class WikiParse {
             e.printStackTrace();
         }
 
-    }
-
-    public TreeSet<Integer> search(String searchQuery) {
-
-        TreeSet<Integer> listOfSeeks = trie.contains(Classifiers.getStemmedWord(searchQuery.split(" ")[0].toLowerCase()));
-        return fileReadIO.readData(searchQuery.charAt(0) , listOfSeeks);
     }
 }
