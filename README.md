@@ -16,7 +16,7 @@ Procedure:
 
 Statistics:
  On a mchine of configuration :
-	Lenovo Z59=80 , 4 GB of RAM , 5400rpm hard-disk
+	Lenovo Z580 , 4 GB of RAM , 5400rpm hard-disk
  - For 100 MB of data
    - Size of index ( primary+secondary ) : 24.3 MB
    - Time to primary index : 9.031 sec
