@@ -20,37 +20,19 @@ public class FileReadIO {
             "indexv.idx" ,"indexw.idx" ,"indexx.idx" ,"indexy.idx" ,"indexz.idx"
     };
 
-    RandomAccessFile[] file = new RandomAccessFile[fileNames.length];
+    private String indexFolderPath = null;
 
-    public void initialize() {
+    public FileReadIO(String folderPath) {
 
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i] = new RandomAccessFile(fileNames[i] , "r");
-            }
+        if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
+            this.indexFolderPath = folderPath + '/';
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void close() {
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i].close();
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        else {
+            this.indexFolderPath = folderPath;
         }
     }
 
     public TreeSet<Integer> readData(char startChar , TreeSet<Integer> listOfSeeks) {
-
-        if ( isInitialized == false ) {
-            initialize();
-            isInitialized = true;
-        }
 
         if ( listOfSeeks == null )
             return new TreeSet<Integer>();
@@ -58,15 +40,19 @@ public class FileReadIO {
         TreeSet<Integer> pageIds = new TreeSet<Integer>();
         int index = ((int)startChar) - ((int)'a');
 
+        RandomAccessFile randomAccessFile = null;
+
         try {
+
+            randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
 
             StringBuffer stringBuffer = new StringBuffer();
 
             for ( int seekLocation : listOfSeeks ) {
 
-                file[index].seek(seekLocation);
+                randomAccessFile.seek(seekLocation);
 
-                String line = file[index].readLine();
+                String line = randomAccessFile.readLine();
                 String[] splitted = line.split(":");
 
                 for ( String split : splitted ) {
@@ -103,7 +89,13 @@ public class FileReadIO {
         catch (IOException e) {
             e.printStackTrace();
         }
-
+        finally {
+            try {
+                randomAccessFile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return pageIds;
     }

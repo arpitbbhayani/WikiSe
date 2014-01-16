@@ -23,44 +23,17 @@ public class FileSequentialReadIO {
             "indexv.idx" ,"indexw.idx" ,"indexx.idx" ,"indexy.idx" ,"indexz.idx"
     };
 
-    BufferedReader[] file = new BufferedReader[fileNames.length];
-
-    public void initialize() {
-
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i] = new BufferedReader(new FileReader(fileNames[i]));
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void close() {
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i].close();
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public TreeSet<Integer> readData(String searchWord ) {
-
-        if ( isInitialized == false ) {
-            initialize();
-            isInitialized = true;
-        }
 
         TreeSet<Integer> pageIds = new TreeSet<Integer>();
         int index = (int)(searchWord.charAt(0)) - ((int)'a');
 
-        BufferedReader bufferedReader = file[index];
+        BufferedReader bufferedReader = null;
 
         try {
+
+            bufferedReader = new BufferedReader(new FileReader(fileNames[index]));
+
             String currentLine = null;
             StringBuilder stringBuilder = new StringBuilder();
             while ((currentLine = bufferedReader.readLine()) != null) {
@@ -93,6 +66,13 @@ public class FileSequentialReadIO {
         }
         catch (IOException e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return pageIds;

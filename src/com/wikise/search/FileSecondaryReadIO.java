@@ -11,8 +11,6 @@ import java.util.TreeSet;
  */
 public class FileSecondaryReadIO {
 
-    boolean isInitialized = false;
-
     public String[] fileNames = {
             "sindexa.idx" ,"sindexb.idx" ,"sindexc.idx" ,"sindexd.idx" ,"sindexe.idx" ,"sindexf.idx" ,"sindexg.idx" ,
             "sindexh.idx" ,"sindexi.idx" ,"sindexj.idx" ,"sindexk.idx" ,"sindexl.idx" ,"sindexm.idx" ,"sindexn.idx" ,
@@ -20,44 +18,28 @@ public class FileSecondaryReadIO {
             "sindexv.idx" ,"sindexw.idx" ,"sindexx.idx" ,"sindexy.idx" ,"sindexz.idx"
     };
 
-    BufferedReader[] file = new BufferedReader[fileNames.length];
 
-    public void initialize() {
+    private String indexFolderPath = null;
 
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i] = new BufferedReader(new FileReader(fileNames[i]));
-            }
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public FileSecondaryReadIO(String folderPath) {
 
-    public void close() {
-        try {
-            for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                file[i].close();
-            }
+        if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
+            this.indexFolderPath = folderPath + '/';
         }
-        catch (IOException e) {
-            e.printStackTrace();
+        else {
+            this.indexFolderPath = folderPath;
         }
     }
 
     public TreeSet<Integer> getSeekLocations(String searchWord ) {
 
-        if ( isInitialized == false ) {
-            initialize();
-            isInitialized = true;
-        }
-
         TreeSet<Integer> pageIds = new TreeSet<Integer>();
         int index = (int)(searchWord.charAt(0)) - ((int)'a');
 
-        BufferedReader bufferedReader = file[index];
 
+        BufferedReader bufferedReader = null;
         try {
+            bufferedReader = new BufferedReader(new FileReader(indexFolderPath + fileNames[index]));
             String currentLine = null;
             StringBuilder stringBuilder = new StringBuilder();
             while ((currentLine = bufferedReader.readLine()) != null) {
@@ -91,8 +73,14 @@ public class FileSecondaryReadIO {
         catch (IOException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return pageIds;
     }
-
 }

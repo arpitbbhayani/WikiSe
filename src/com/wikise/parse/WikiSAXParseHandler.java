@@ -24,20 +24,24 @@ public class WikiSAXParseHandler extends DefaultHandler {
     TreeMap<String , TreeSet<String>> invertedIndex = null;
 
     Trie trie = null;
+    String indexFolderPath = null;
 
     TreeSet<String> allStrings = new TreeSet<String>();
 
     WikiPageConcise wikiPage = null;
     String wikiPageId = null;
 
-    FileIO fileIO = new FileIO();
+    FileIO fileIO = null;
 
-    public WikiSAXParseHandler(Trie trie) {
+    public WikiSAXParseHandler(Trie trie, String indexFolderPath) {
         tagStack = new Stack<String>();
         stringBuilder = new StringBuilder();
         invertedIndex = new TreeMap<String, TreeSet<String>>();
 
         this.trie = trie;
+        this.indexFolderPath = indexFolderPath;
+
+        fileIO = new FileIO(indexFolderPath);
         fileIO.initialize();
     }
 
@@ -156,7 +160,7 @@ public class WikiSAXParseHandler extends DefaultHandler {
         }
         fileIO.close();
 
-        System.out.println("Total  words : " + allStrings.size());
+        //System.out.println("Total  words : " + allStrings.size());
 
         fileIO.sInitialize();
         fileIO.dumpSecondary(allStrings, trie);

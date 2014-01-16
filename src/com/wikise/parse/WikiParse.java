@@ -39,8 +39,9 @@ public class WikiParse {
      * Initiation of parsing process.
      * Parsing is done Page By Page.
      * Dumping the data into a file is made thread safe.
+     * @param indexFolderPath
      */
-    public void parse() {
+    public void parse(String indexFolderPath) {
 
         Classifiers.initialize();
 
@@ -49,7 +50,7 @@ public class WikiParse {
             SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
             SAXParser saxParser = saxParserFactory.newSAXParser();
 
-            WikiSAXParseHandler wikiSAXParseHandler = new WikiSAXParseHandler(trie);
+            WikiSAXParseHandler wikiSAXParseHandler = new WikiSAXParseHandler(trie , indexFolderPath);
 
             saxParser.parse(filePath , wikiSAXParseHandler );
 

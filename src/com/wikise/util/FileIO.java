@@ -24,13 +24,25 @@ public class FileIO {
             "sindexv.idx" ,"sindexw.idx" ,"sindexx.idx" ,"sindexy.idx" ,"sindexz.idx"
     };
 
+    String indexFolderPath = null;
+
     private BufferedWriter[] writer = new BufferedWriter[fileNames.length];
     private BufferedWriter[] swriter = new BufferedWriter[sfileNames.length];
+
+    public FileIO(String folderPath) {
+
+        if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
+            this.indexFolderPath = folderPath + '/';
+        }
+        else {
+            this.indexFolderPath = folderPath;
+        }
+    }
 
     public void initialize() {
         try {
             for ( int i = 0 ; i < fileNames.length ; i++ ) {
-                writer[i] = new BufferedWriter(new FileWriter(fileNames[i]));
+                writer[i] = new BufferedWriter(new FileWriter(indexFolderPath + fileNames[i]));
                 fileSeeks[i] = 0;
             }
         }
@@ -76,7 +88,7 @@ public class FileIO {
     public void sInitialize() {
         try {
             for ( int i = 0 ; i < sfileNames.length ; i++ ) {
-                swriter[i] = new BufferedWriter(new FileWriter(sfileNames[i]));
+                swriter[i] = new BufferedWriter(new FileWriter(indexFolderPath + sfileNames[i]));
             }
         }
         catch (IOException e) {
