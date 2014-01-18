@@ -1,7 +1,7 @@
 package com.wikise.search;
 
-import com.wikise.parse.WikiParse;
-import com.wikise.search.Classifiers;
+import com.wikise.util.Classifiers;
+
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -11,12 +11,11 @@ import java.util.TreeSet;
 public class Search {
     public static void main(String[] args) {
 
-        //String indexFolderPath = "/home/devilo/workspace/java/201305515_M1/bin/index";
-        String indexFolderPath = args[0];
+        //String indexFolderPath = args[0];
+        String indexFolderPath = "/home/devilo/workspace/java/index";
 
         FileReadIO fileReadIO = new FileReadIO(indexFolderPath);
         FileSecondaryReadIO fileSecondaryReadIO = new FileSecondaryReadIO(indexFolderPath);
-        //FileSequentialReadIO fileSequentialReadIO = new FileSequentialReadIO();
         Classifiers.initialize();
 
         Scanner scanner = new Scanner(System.in);
@@ -26,11 +25,10 @@ public class Search {
         for ( int i = 0 ; i < count ; i++ ) {
 
             String searchQuery = scanner.nextLine();
-            //long startTime = System.currentTimeMillis();
-                TreeSet<Integer> listOfDocId = search(searchQuery.toLowerCase() , fileReadIO , fileSecondaryReadIO);
-                formatOutput(listOfDocId);
-            //long stopTime = System.currentTimeMillis();
-            //System.out.println( (stopTime - startTime) / 1000f );
+
+            TreeSet<Integer> listOfDocId = search(searchQuery.toLowerCase() , fileReadIO , fileSecondaryReadIO);
+            formatOutput(listOfDocId);
+
         }
 
     }
