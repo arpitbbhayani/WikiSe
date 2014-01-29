@@ -1,5 +1,6 @@
 package com.wikise.search;
 
+import com.wikise.parse.WikiParse;
 import com.wikise.util.Classifiers;
 
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class Search {
     public static void main(String[] args) {
 
         //String indexFolderPath = args[0];
-        String indexFolderPath = "/home/devilo/workspace/java/index";
+        String indexFolderPath = "/media/devilo/GaMeS aNd SeTuPs";
 
         FileReadIO fileReadIO = new FileReadIO(indexFolderPath);
         FileSecondaryReadIO fileSecondaryReadIO = new FileSecondaryReadIO(indexFolderPath);
@@ -26,8 +27,15 @@ public class Search {
 
             String searchQuery = scanner.nextLine();
 
+            long startTime = System.currentTimeMillis();
+
             TreeSet<Integer> listOfDocId = search(searchQuery.toLowerCase() , fileReadIO , fileSecondaryReadIO);
             formatOutput(listOfDocId);
+
+            long stopTime = System.currentTimeMillis();
+            float elapsedTime = (stopTime - startTime)/1000f;
+
+            System.out.println(elapsedTime);
 
         }
 

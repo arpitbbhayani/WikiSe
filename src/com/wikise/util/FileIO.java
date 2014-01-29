@@ -1,5 +1,7 @@
 package com.wikise.util;
 
+import com.wikise.parse.WikiPageConcise;
+
 import java.io.*;
 import java.util.TreeSet;
 
@@ -9,6 +11,8 @@ import java.util.TreeSet;
 public class FileIO {
 
     int fileSeeks[] = new int[26];
+
+    public String metaFileName = "metadata.dat";
 
     public String[] fileNames = {
             "indexa.idx" ,"indexb.idx" ,"indexc.idx" ,"indexd.idx" ,"indexe.idx" ,"indexf.idx" ,"indexg.idx" ,
@@ -29,6 +33,8 @@ public class FileIO {
     private BufferedWriter[] writer = new BufferedWriter[fileNames.length];
     private BufferedWriter[] swriter = new BufferedWriter[sfileNames.length];
 
+    private BufferedWriter metaWriter;
+
     public FileIO(String folderPath) {
 
         if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
@@ -41,6 +47,7 @@ public class FileIO {
 
     public void initialize() {
         try {
+            metaWriter = new BufferedWriter(new FileWriter(indexFolderPath + metaFileName));
             for ( int i = 0 ; i < fileNames.length ; i++ ) {
                 writer[i] = new BufferedWriter(new FileWriter(indexFolderPath + fileNames[i]));
                 fileSeeks[i] = 0;
@@ -53,6 +60,7 @@ public class FileIO {
 
     public void close() {
         try {
+            metaWriter.close();
             for ( int i = 0 ; i < fileNames.length ; i++ ) {
                 writer[i].close();
             }
@@ -141,6 +149,16 @@ public class FileIO {
                 }
 
             }
+        }
+
+    }
+
+    public void dumpMetaInformation(WikiPageConcise wikiPage) {
+
+        try {
+            metaWriter.write(wikiPage.getPageId() + ":" + wikiPage.getPageTitile() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

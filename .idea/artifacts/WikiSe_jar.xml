@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WikiSe:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WikiSe_jar</output-path>
+    <root id="archive" name="WikiSe.jar">
+      <element id="module-output" name="WikiSe" />
+    </root>
+  </artifact>
+</component>

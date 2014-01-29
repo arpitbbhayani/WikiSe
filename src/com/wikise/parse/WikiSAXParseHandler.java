@@ -67,6 +67,8 @@ public class WikiSAXParseHandler extends DefaultHandler {
 
         if ( endTag.equalsIgnoreCase("page") ) {
 
+            fileIO.dumpMetaInformation(wikiPage);
+
             WikiTextParser wikiTextParser = new WikiTextParser(wikiPage , invertedIndex );
             //pageMap.put(wikiPage.getPageId() , wikiTextParser.parseText());
             //allStrings.addAll(wikiTextParser.parseText());
@@ -114,15 +116,16 @@ public class WikiSAXParseHandler extends DefaultHandler {
 
         }
         else if ( endTag.equalsIgnoreCase("title") ) {
-            wikiPage.setPageTitile(new String(stringBuilder).toLowerCase());
+            //wikiPage.setPageTitile(new String(stringBuilder).toLowerCase());
+            wikiPage.setPageTitile("title");
         }
         else if ( endTag.equalsIgnoreCase("id") ) {
             if ( parentTag.equalsIgnoreCase("page")) {
                 wikiPageId = new String(stringBuilder);
                 wikiPage.setPageId(wikiPageId);
             }
-            else if ( parentTag.equalsIgnoreCase("revision")) {}
-            else if ( parentTag.equalsIgnoreCase("contributor")) {}
+            //else if ( parentTag.equalsIgnoreCase("revision")) {}
+            //else if ( parentTag.equalsIgnoreCase("contributor")) {}
         }
         else if ( endTag.equalsIgnoreCase("text") ) {
             if ( parentTag.equalsIgnoreCase("revision"))

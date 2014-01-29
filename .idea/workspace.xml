@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="WikiSe:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e96c9ae1-8384-43c6-aa62-822ed448fc8e" name="Default" comment="" />
+    <ignored path="WikiSe.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint class_name="java.lang.NumberFormatException" package_name="java.lang">
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </exception_breakpoints>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="WikiSe" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="WikiSAXParseHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="150" column="57" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiTextParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="28" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="6060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiParse.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="0" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1095">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileIO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/util/FileIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="13" selection-start="2029" selection-end="2029" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="2565">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="40" selection-start="821" selection-end="821" vertical-scroll-proportion="0.55469954" vertical-offset="0" max-vertical-offset="649">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/AbstractWikiSAXParseHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/Revision.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/ClassMapping.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageRevision.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiInfoBox.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageRevisionContributor.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPage.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageConsice.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/Classifiers.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/Stemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/main/Stemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/Stemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/process/WikiTextParserOld.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/process/WikiPageProcess.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/process/Stemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/snowball/englishStemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/snowball/Among.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/snowball/SnowballProgram.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/snowball/SnowballStemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/snowball/TestApp.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/Classifiers.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/TestFileRead.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/FileReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/FileSequentialReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/SearchClassifiers.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Stemmer.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/FileSequentialReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/FileSecondaryReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Classifiers.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/index/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Search.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/Trie.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/factory/FileMetaIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/FileIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/index/Index.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="-4" />
+    <option name="width" value="1368" />
+    <option name="height" value="773" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="process" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parse" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wikise.search" />
+      <recent name="com.wikise.util" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.wikise.parse" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Index">
+    <configuration default="false" name="Index" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wikise.index.Index" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WikiSe" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JProfiler">
+        <option name="WINDOW" value="false" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="JProfiler" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestFileRead" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wikise.util.TestFileRead" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WikiSe" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Search" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wikise.search.Search" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WikiSe" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.Index" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TestFileRead" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Search" />
+    </list>
+    <recent_temporary>
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Application.Index" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Search" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TestFileRead" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e96c9ae1-8384-43c6-aa62-822ed448fc8e" name="Default" comment="" />
+      <created>1389424158697</created>
+      <updated>1389424158697</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39940828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.50110376" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.49889624" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2514793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="99" y="96" width="1168" height="573" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="13" selection-start="2029" selection-end="2029" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="2520">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="57" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Trie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="44" selection-start="3286" selection-end="3286" vertical-scroll-proportion="0.0" vertical-offset="1436" max-vertical-offset="1905">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="34" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="6060" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="32" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="48" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1650" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="494" column="0" selection-start="17980" selection-end="17980" vertical-scroll-proportion="0.0" vertical-offset="7410" max-vertical-offset="18750" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="74" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="6" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="7230" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="23" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="2205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="368" column="24" selection-start="13719" selection-end="13719" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="33" selection-start="1436" selection-end="1436" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="95" selection-start="3172" selection-end="3172" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="33" selection-start="1436" selection-end="1436" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="47" selection-start="1878" selection-end="1883" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="33" selection-start="1436" selection-end="1436" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="30" selection-start="1698" selection-end="1698" vertical-scroll-proportion="0.0" vertical-offset="975" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="57" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="384" selection-end="431" vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="508" column="0" selection-start="19893" selection-end="19893" vertical-scroll-proportion="0.0" vertical-offset="7620" max-vertical-offset="36345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="32" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="5" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="489" column="0" selection-start="18517" selection-end="18517" vertical-scroll-proportion="0.0" vertical-offset="6339" max-vertical-offset="32730" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="508" column="0" selection-start="19893" selection-end="19893" vertical-scroll-proportion="0.0" vertical-offset="6523" max-vertical-offset="35040" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/util/regex/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="762" column="19" selection-start="39124" selection-end="39124" vertical-scroll-proportion="-2.1188118" vertical-offset="11821" max-vertical-offset="84270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.35211268" vertical-offset="0" max-vertical-offset="615">
+          <folding>
+            <element signature="e#201#202#0" expanded="false" />
+            <element signature="e#230#231#0" expanded="false" />
+            <element signature="e#274#275#0" expanded="false" />
+            <element signature="e#310#311#0" expanded="false" />
+            <element signature="e#347#348#0" expanded="false" />
+            <element signature="e#380#381#0" expanded="false" />
+            <element signature="e#432#433#0" expanded="false" />
+            <element signature="e#476#477#0" expanded="false" />
+            <element signature="e#511#512#0" expanded="false" />
+            <element signature="e#542#543#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#630#631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1906" column="0" selection-start="75404" selection-end="75404" vertical-scroll-proportion="0.0" vertical-offset="27973" max-vertical-offset="46140" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/Stemmer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="7" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.33333334" vertical-offset="608" max-vertical-offset="5625" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="365" column="0" selection-start="13550" selection-end="13550" vertical-scroll-proportion="0.33333334" vertical-offset="4621" max-vertical-offset="10905" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="494" column="0" selection-start="17980" selection-end="17980" vertical-scroll-proportion="0.0" vertical-offset="6939" max-vertical-offset="18405" />
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/io/RandomAccessFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="796" column="0" selection-start="31940" selection-end="31940" vertical-scroll-proportion="0.0" vertical-offset="11431" max-vertical-offset="17355" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileSequentialReadIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="16" selection-start="2532" selection-end="2552" vertical-scroll-proportion="0.0" vertical-offset="624" max-vertical-offset="1200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="5" selection-start="745" selection-end="1034" vertical-scroll-proportion="0.6690141" vertical-offset="135" max-vertical-offset="1575" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileSecondaryReadIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Classifiers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="6" selection-start="7967" selection-end="7967" vertical-scroll-proportion="0.0" vertical-offset="1485" max-vertical-offset="2925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="53" selection-start="366" selection-end="366" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Trie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="27" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.33333334" vertical-offset="1448" max-vertical-offset="2100">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="13" selection-start="2029" selection-end="2029" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="2520">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="0" selection-start="1099" selection-end="1099" vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="28" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="57" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="40" selection-start="821" selection-end="821" vertical-scroll-proportion="0.55469954" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>WikiSe:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>WikiSe</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

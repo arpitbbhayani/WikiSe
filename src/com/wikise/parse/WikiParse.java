@@ -55,7 +55,8 @@ public class WikiParse {
             saxParser.parse(filePath , wikiSAXParseHandler );
 
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Parser config exception");
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
