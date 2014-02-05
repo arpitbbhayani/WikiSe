@@ -12,6 +12,7 @@ public class Classifiers {
 
     public static HashSet<String> stopWordsSet = null;
     public static HashMap<String,String> mostFreqWithStemming = null;
+    public static HashSet<String> infoboxSet = null;
 
     private static Stemmer stemmer = null;
 
@@ -29,6 +30,29 @@ public class Classifiers {
         mostFreqWithStemming = new HashMap<String, String>();
 
         doStemming();
+    }
+
+    private static void fillInfoboxKeywords() {
+
+        infoboxSet.add("nickname");
+        infoboxSet.add("motto");
+        infoboxSet.add("subdivision");
+        infoboxSet.add("area");
+        infoboxSet.add("population");
+        infoboxSet.add("timezone");
+        infoboxSet.add("elevation");
+        infoboxSet.add("area");
+        infoboxSet.add("postal");
+        infoboxSet.add("website");
+        infoboxSet.add("leader");
+    }
+
+    public static boolean isInfoboxKeyword(String key) {
+        if ( infoboxSet == null ) {
+            infoboxSet = new HashSet<String>();
+            fillInfoboxKeywords();
+        }
+        return infoboxSet.contains(key);
     }
 
     public static String getStemmedWord( String word ) {
@@ -117,6 +141,7 @@ public class Classifiers {
             stopWordsSet.add("i");
             stopWordsSet.add("if");
             stopWordsSet.add("in");
+            stopWordsSet.add("infobox");
             stopWordsSet.add("into");
             stopWordsSet.add("is");
             stopWordsSet.add("it");

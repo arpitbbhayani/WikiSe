@@ -21,7 +21,7 @@ import java.util.TreeSet;
 public class WikiParse {
 
     String filePath = null;
-    Trie trie = null;
+    //HashedTrie trie = null;
 
     /**
      *  This is the constructor for WikiParse
@@ -31,7 +31,7 @@ public class WikiParse {
     public WikiParse( String filePath ) {
         /* Default Constructor */
         this.filePath = filePath;
-        this.trie = new Trie();
+        //this.trie = new Trie();
     }
 
 
@@ -50,7 +50,8 @@ public class WikiParse {
             SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
             SAXParser saxParser = saxParserFactory.newSAXParser();
 
-            WikiSAXParseHandler wikiSAXParseHandler = new WikiSAXParseHandler(trie , indexFolderPath);
+            //WikiSAXParseHandler wikiSAXParseHandler = new WikiSAXParseHandler(trie , indexFolderPath);
+            WikiSAXParseHandler wikiSAXParseHandler = new WikiSAXParseHandler(indexFolderPath);
 
             saxParser.parse(filePath , wikiSAXParseHandler );
 

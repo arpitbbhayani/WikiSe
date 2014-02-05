@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
 
-public class Trie implements Serializable {
+public class HashedTrie implements Serializable {
 
     /* This object will be either :
      *  1. HashMap
@@ -17,7 +17,7 @@ public class Trie implements Serializable {
     /**
      *  Default contructor
      */
-    public Trie() {
+    public HashedTrie() {
        root = new HashMap<Character, Object>();
     }
 
@@ -123,13 +123,5 @@ public class Trie implements Serializable {
         else {
             seekLocations.add(seekLocation);
         }
-    }
-
-
-    public void serialize(String outFile, Object serializableObject) throws IOException {
-        FileOutputStream fos = new FileOutputStream(outFile);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(serializableObject);
-        oos.close();
     }
 }

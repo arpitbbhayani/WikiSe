@@ -9,7 +9,7 @@ import java.util.TreeSet;
 /**
  * Created by Arpit Bhayani on 14/1/14.
  */
-public class FileSecondaryReadIO {
+public class HashedFileSecondaryReadIO {
 
     public String[] fileNames = {
             "sindexa.idx" ,"sindexb.idx" ,"sindexc.idx" ,"sindexd.idx" ,"sindexe.idx" ,"sindexf.idx" ,"sindexg.idx" ,
@@ -21,7 +21,7 @@ public class FileSecondaryReadIO {
 
     private String indexFolderPath = null;
 
-    public FileSecondaryReadIO(String folderPath) {
+    public HashedFileSecondaryReadIO(String folderPath) {
 
         if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
             this.indexFolderPath = folderPath + '/';

@@ -1,26 +1,37 @@
 package com.wikise.search;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import com.wikise.util.Classifiers;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
- * Created by Arpit Bhayani on 14/1/14.
+ * Created by Arpit Bhayani on 31/1/14.
  */
 public class FileReadIO {
 
-    boolean isInitialized = false;
+    private String dictionaryFileName = "meta/dictionary.dat";
+    private String metaFileName = "meta/metadata.dat";
+    private String infoFileName = "meta/info.dat";
 
-    public String[] fileNames = {
+    private String[] fileNames = {
             "indexa.idx" ,"indexb.idx" ,"indexc.idx" ,"indexd.idx" ,"indexe.idx" ,"indexf.idx" ,"indexg.idx" ,
             "indexh.idx" ,"indexi.idx" ,"indexj.idx" ,"indexk.idx" ,"indexl.idx" ,"indexm.idx" ,"indexn.idx" ,
             "indexo.idx" ,"indexp.idx" ,"indexq.idx" ,"indexr.idx" ,"indexs.idx" ,"indext.idx" ,"indexu.idx" ,
             "indexv.idx" ,"indexw.idx" ,"indexx.idx" ,"indexy.idx" ,"indexz.idx"
     };
 
+    String[] sfileNames = {
+            "sindexa.idx" ,"sindexb.idx" ,"sindexc.idx" ,"sindexd.idx" ,"sindexe.idx" ,"sindexf.idx" ,"sindexg.idx" ,
+            "sindexh.idx" ,"sindexi.idx" ,"sindexj.idx" ,"sindexk.idx" ,"sindexl.idx" ,"sindexm.idx" ,"sindexn.idx" ,
+            "sindexo.idx" ,"sindexp.idx" ,"sindexq.idx" ,"sindexr.idx" ,"sindexs.idx" ,"sindext.idx" ,"sindexu.idx" ,
+            "sindexv.idx" ,"sindexw.idx" ,"sindexx.idx" ,"sindexy.idx" ,"sindexz.idx"
+    };
+
     private String indexFolderPath = null;
+
+    private BufferedReader dictionaryReader = null;
 
     public FileReadIO(String folderPath) {
 
@@ -30,8 +41,243 @@ public class FileReadIO {
         else {
             this.indexFolderPath = folderPath;
         }
+
     }
 
+    /**
+     * Gets a posting list for a search query (can have multiple words).
+     * @param s search query
+     * @return Posting list
+     */
+    public ArrayList<String> getPostingList(String s) {
+
+        try {
+            return getPostingListFromTermSecondaryIndex(s);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    private ArrayList<String> getPostingListFromTermSecondaryIndex(String singleTerm) throws IOException {
+
+        String processedTerm = Classifiers.getStemmedWord(singleTerm.toLowerCase());
+
+        if ( singleTerm.length() == 0 )
+            return new ArrayList<String>();
+
+        char startChar = singleTerm.charAt(0);
+        int index = (int)startChar - (int)'a';
+
+        if ( index < 0 || index > 25 )
+            return new ArrayList<String>();
+
+        long offsetInDictionary = getOffsetInDictionary(processedTerm);
+
+        if ( offsetInDictionary == -1 )
+            return new ArrayList<String>();
+
+        return getPostingListForTerm(processedTerm, offsetInDictionary);
+
+    }
+
+    /**
+     * returns the posting list given the offset in the dictionary and processed term..
+     * @param processedTerm
+     * @param offsetInDictionary
+     * @return
+     * @throws IOException
+     */
+    private ArrayList<String> getPostingListForTerm( String processedTerm , long offsetInDictionary ) throws  IOException {
+
+        ArrayList<String> postingList = new ArrayList<String>();
+
+        char startChar = processedTerm.charAt(0);
+        int index = (int)startChar - (int)'a';
+
+        if ( index < 0 || index > 25 )
+            return new ArrayList<String>();
+
+        long offsetInInvertedIndex = getOffsetInInvertedIndex(offsetInDictionary , processedTerm);
+
+        if ( offsetInInvertedIndex == -1 ) {
+            return postingList;
+        }
+        else {
+
+            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+            randomAccessFile.seek(offsetInInvertedIndex);
+            String line = randomAccessFile.readLine();
+            String[] splitArray = line.split(":");
+
+            for ( String split : splitArray ) {
+                postingList.add(split);
+            }
+
+        }
+
+        return postingList;
+    }
+
+    /**
+     * Returns the offset in the inverted index given the offset in dictionary.
+     * @param offsetInDictionary
+     * @param s
+     * @return
+     * @throws IOException
+     */
+    private long getOffsetInInvertedIndex(long offsetInDictionary , String s) throws IOException {
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + dictionaryFileName , "r");
+        randomAccessFile.seek(offsetInDictionary);
+
+        String line = null;
+
+        while ( (line = randomAccessFile.readLine()) != null ) {
+            int i = 0 , j = 0;
+            int lineLength = line.length();
+            int sLength = s.length();
+
+            while ( i < lineLength && j < sLength && line.charAt(i) == s.charAt(j) ) {
+                i++;
+                j++;
+            }
+
+            if ( i < lineLength && j == sLength && line.charAt(i) == ':' ) {
+                /* Term matched */
+                long offset = 0;
+                for ( i++; i < lineLength ; i++ ) {
+                    offset = offset * 10 + ((int)line.charAt(i)- (int)'0');
+                }
+                return offset;
+            }
+
+        }
+
+        return -1;
+    }
+
+    /**
+     * Reads secondary index for the word and gets the offset in the Dictionary index.
+     * @param singleTerm
+     * @return offset in the primary index.
+     */
+    private long getOffsetInDictionary(String singleTerm) throws IOException{
+
+        char startChar = singleTerm.charAt(0);
+        int index = (int)startChar - (int)'a';
+
+        if ( index < 0 || index > 25 )
+            return -1;
+
+
+        BufferedReader secondaryReader = new BufferedReader(new FileReader(indexFolderPath + sfileNames[index]));
+        String line = null;
+
+        line = secondaryReader.readLine();
+
+        long prevOffset = Long.parseLong(line.substring(line.indexOf(':')+1));
+
+        while ( (line = secondaryReader.readLine()) != null ) {
+
+            String term = line.substring(0,line.indexOf(':'));
+            long offset = Long.parseLong(line.substring(line.indexOf(':')+1));
+
+            if ( term.compareTo(singleTerm) > 0 ) {
+                return prevOffset;
+            }
+            prevOffset = offset;
+        }
+
+        return prevOffset;
+    }
+
+    /**
+     * Gets the posting list for a term s.
+     * @param s search term (stemmed)
+     * @return Posting list for a single term.
+     * @throws IOException
+     */
+    private ArrayList<String> getPostingListForTerm(String s) throws  IOException {
+
+        ArrayList<String> postingList = new ArrayList<String>();
+
+        //System.out.println("Stemmed term : " + processedTerm);
+        long offsetInInvertedIndex = getOffsetInInvertedIndex(s);
+
+        if ( offsetInInvertedIndex == -1 ) {
+            //System.out.println("Term not found");
+            return postingList;
+        }
+        else {
+            //System.out.println("Term found at dictionary offset : " + offsetInInvertedIndex);
+
+            int index = ((int)s.charAt(0)) - ((int)'a');
+            if ( index < 0 || index > 25 ) {
+                /* Non-english words */
+                System.out.println("Out of bound !!");
+                return postingList;
+            }
+            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+
+            randomAccessFile.seek(offsetInInvertedIndex);
+
+            String line = randomAccessFile.readLine();
+            String[] splitArray = line.split(":");
+
+            for ( String split : splitArray ) {
+                postingList.add(split);
+            }
+
+        }
+
+        return postingList;
+    }
+
+    /**
+     * This method searches the word in the dictionary file and if found returns
+     * the corresponding offset in the index file.
+     * @param s Search term
+     * @return Offset in index file.
+     */
+    private long getOffsetInInvertedIndex(String s) throws IOException {
+
+        dictionaryReader = new BufferedReader(new FileReader(indexFolderPath + dictionaryFileName));
+        String line = null;
+
+        while ( (line = dictionaryReader.readLine()) != null ) {
+            int i = 0 , j = 0;
+            int lineLength = line.length();
+            int sLength = s.length();
+
+            while ( i < lineLength && j < sLength && line.charAt(i) == s.charAt(j) ) {
+                i++;
+                j++;
+            }
+
+            if ( i < lineLength && j == sLength && line.charAt(i) == ':' ) {
+                /* Term matched */
+                long offset = 0;
+                for ( i++; i < lineLength ; i++ ) {
+                    offset = offset * 10 + ((int)line.charAt(i)- (int)'0');
+                }
+                return offset;
+            }
+
+        }
+
+        return -1;
+    }
+
+
+    /**
+     * This method sequentially searches using HashedIO i.e. Trie.
+     * @param startChar
+     * @param listOfSeeks
+     * @return
+     */
     public TreeSet<Integer> readData(char startChar , TreeSet<Integer> listOfSeeks) {
 
         if ( listOfSeeks == null )
@@ -48,7 +294,7 @@ public class FileReadIO {
 
             StringBuffer stringBuffer = new StringBuffer();
 
-            for ( int seekLocation : listOfSeeks ) {
+            for ( long seekLocation : listOfSeeks ) {
 
                 randomAccessFile.seek(seekLocation);
 
@@ -59,30 +305,6 @@ public class FileReadIO {
                     if ( Character.isDigit(split.charAt(0)) )
                         pageIds.add(new Integer(split));
                 }
-
-                /*char ch = file[index].readChar();
-                while ( ch != ':') {
-                    ch = file[index].readChar();
-                }
-
-                ch = file[index].readChar();
-
-                while  ( (int) ch != -1 && (Character.isDigit(ch) || ch == ':') ) {
-
-                    if ( ch == ':' ) {
-                        pageIds.add(new Integer(new String(stringBuffer)));
-                        stringBuffer.setLength(0);
-                    }
-                    else {
-                        stringBuffer.append(ch);
-                    }
-                    ch = (char) file[index].read();
-                }
-
-                if ( stringBuffer.length() > 0 ) {
-                    pageIds.add(new Integer(new String(stringBuffer)));
-                    stringBuffer.setLength(0);
-                }*/
 
             }
         }

@@ -12,7 +12,7 @@ import java.util.TreeSet;
 /**
  * Created by Arpit Bhayani on 14/1/14.
  */
-public class FileSequentialReadIO {
+public class HashedFileSequentialReadIO {
 
     boolean isInitialized = false;
 
