@@ -151,6 +151,7 @@ public class Search {
             prevOffset = currentOffset;
 
         }
+        randomAccessFile.close();
 
         /* Go to the file smetadata.dat at offset = offset */
         offset = prevOffset;
@@ -183,6 +184,8 @@ public class Search {
 
         }
 
+        randomAccessFile.close();
+
         /* Go to the file pagemetadata.dat at offset = offset */
         offset = prevOffset;
 
@@ -191,6 +194,7 @@ public class Search {
 
         line = randomAccessFile.readLine();
 
+        randomAccessFile.close();
         return line;
     }
 
@@ -239,6 +243,13 @@ public class Search {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         return  pageMetadataMap;

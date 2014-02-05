@@ -88,55 +88,7 @@
     <favorites_list name="WikiSe" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Search.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="24" selection-start="2868" selection-end="2868" vertical-scroll-proportion="0.26931566" vertical-offset="1168" max-vertical-offset="3795">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiTextParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="10" selection-start="832" selection-end="832" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="8670">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileReadIO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="13" selection-start="4517" selection-end="5098" vertical-scroll-proportion="0.0" vertical-offset="1889" max-vertical-offset="4905">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UtilCodes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/util/UtilCodes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="31" selection-start="1786" selection-end="1786" vertical-scroll-proportion="-6.888889" vertical-offset="504" max-vertical-offset="1965">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiSAXParseHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="38" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="3420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -191,8 +143,8 @@
         <option value="$PROJECT_DIR$/src/com/wikise/index/Index.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/search/SearchUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/util/UtilCodes.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/search/Search.java" />
       </list>
     </option>
@@ -229,6 +181,10 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -373,10 +329,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Tests" />
-      </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -519,19 +471,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -557,6 +496,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -684,7 +636,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23572475" sideWeight="0.49889624" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27071005" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27071005" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="99" y="96" width="1168" height="573" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -718,6 +670,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="38" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="3600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="494" column="0" selection-start="17980" selection-end="17980" vertical-scroll-proportion="0.0" vertical-offset="7410" max-vertical-offset="18750" />
@@ -1006,40 +965,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="38" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="3420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="13" selection-start="4517" selection-end="5098" vertical-scroll-proportion="0.0" vertical-offset="1889" max-vertical-offset="4905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/UtilCodes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="31" selection-start="1786" selection-end="1786" vertical-scroll-proportion="-6.888889" vertical-offset="504" max-vertical-offset="1965">
+        <state line="42" column="58" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.990566" vertical-offset="0" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="34" selection-start="5585" selection-end="5585" vertical-scroll-proportion="0.78582436" vertical-offset="1680" max-vertical-offset="3420">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="832" selection-end="832" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="8670">
+        <state line="27" column="10" selection-start="832" selection-end="832" vertical-scroll-proportion="-0.16178736" vertical-offset="405" max-vertical-offset="8670">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="24" selection-start="2868" selection-end="2868" vertical-scroll-proportion="0.26931566" vertical-offset="1168" max-vertical-offset="3795">
+        <state line="186" column="33" selection-start="6508" selection-end="6508" vertical-scroll-proportion="0.67108166" vertical-offset="2486" max-vertical-offset="3960">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="19" selection-start="3767" selection-end="3767" vertical-scroll-proportion="0.25512528" vertical-offset="1463" max-vertical-offset="5010">
+          <folding />
         </state>
       </provider>
     </entry>

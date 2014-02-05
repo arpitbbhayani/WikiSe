@@ -12,7 +12,6 @@ import java.util.TreeSet;
 public class FileReadIO {
 
     private String dictionaryFileName = "meta/dictionary.dat";
-    private String metaFileName = "meta/metadata.dat";
     private String infoFileName = "meta/info.dat";
 
     private String[] fileNames = {
@@ -45,6 +44,7 @@ public class FileReadIO {
     }
 
     /**
+     * Main search function. This function is exposed to the rest of the world.
      * Gets a posting list for a search query (can have multiple words).
      * @param s search query
      * @return Posting list
@@ -52,7 +52,7 @@ public class FileReadIO {
     public ArrayList<String> getPostingList(String s) {
 
         try {
-            return getPostingListFromTermSecondaryIndex(s);
+            return getPostingsForSingleTerm(s);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class FileReadIO {
 
     }
 
-    private ArrayList<String> getPostingListFromTermSecondaryIndex(String singleTerm) throws IOException {
+    private ArrayList<String> getPostingsForSingleTerm(String singleTerm) throws IOException {
 
         String processedTerm = Classifiers.getStemmedWord(singleTerm.toLowerCase());
 
@@ -74,12 +74,18 @@ public class FileReadIO {
         if ( index < 0 || index > 25 )
             return new ArrayList<String>();
 
+        /* Read from sindexa.idx and get the offset in the file dictionary.dat */
         long offsetInDictionary = getOffsetInDictionary(processedTerm);
 
         if ( offsetInDictionary == -1 )
             return new ArrayList<String>();
 
-        return getPostingListForTerm(processedTerm, offsetInDictionary);
+        /* Go to the dictionary.dat at the given offset,
+          searches the term in dictionary.dat, gets the offset -> this offset is in the indexa.idx file.
+          term.
+          The indexa.idx file where the posting list is stored.
+        */
+        return getPostingsListForTerm(processedTerm, offsetInDictionary);
 
     }
 
@@ -90,7 +96,7 @@ public class FileReadIO {
      * @return
      * @throws IOException
      */
-    private ArrayList<String> getPostingListForTerm( String processedTerm , long offsetInDictionary ) throws  IOException {
+    private ArrayList<String> getPostingsListForTerm(String processedTerm, long offsetInDictionary) throws  IOException {
 
         ArrayList<String> postingList = new ArrayList<String>();
 
@@ -100,22 +106,21 @@ public class FileReadIO {
         if ( index < 0 || index > 25 )
             return new ArrayList<String>();
 
-        long offsetInInvertedIndex = getOffsetInInvertedIndex(offsetInDictionary , processedTerm);
+        /* Read the dictionary.dat file and get the offset in the indexa.idx */
+        long offset = getOffsetInInvertedIndexFile(offsetInDictionary, processedTerm);
 
-        if ( offsetInInvertedIndex == -1 ) {
+        if ( offset == -1 ) {
             return postingList;
         }
-        else {
 
-            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
-            randomAccessFile.seek(offsetInInvertedIndex);
-            String line = randomAccessFile.readLine();
-            String[] splitArray = line.split(":");
+        /* Read the indexa.idx file and go to offset offsetIn_indexa_File and get the posting list. */
+        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+        randomAccessFile.seek(offset);
+        String line = randomAccessFile.readLine();
+        String[] splitArray = line.split(":");
 
-            for ( String split : splitArray ) {
-                postingList.add(split);
-            }
-
+        for ( String split : splitArray ) {
+            postingList.add(split);
         }
 
         return postingList;
@@ -128,7 +133,7 @@ public class FileReadIO {
      * @return
      * @throws IOException
      */
-    private long getOffsetInInvertedIndex(long offsetInDictionary , String s) throws IOException {
+    private long getOffsetInInvertedIndexFile(long offsetInDictionary, String s) throws IOException {
 
         RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + dictionaryFileName , "r");
         randomAccessFile.seek(offsetInDictionary);
@@ -161,6 +166,8 @@ public class FileReadIO {
 
     /**
      * Reads secondary index for the word and gets the offset in the Dictionary index.
+     * This function is called to get the offset in dictonary.
+     * This offset is of the file dictionary.dat which is stored in sindexa.dat.
      * @param singleTerm
      * @return offset in the primary index.
      */
