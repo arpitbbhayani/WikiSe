@@ -9,11 +9,7 @@ public class Index {
     public static void main(String[] args) {
 
         String filePath = "/media/devilo/GaMeS aNd SeTuPs/100.xml";
-        //String filePath = "/media/devilo/GaMeS aNd SeTuPs/enwiki-latest-pages-articles.xml/enwiki-latest-pages-articles.xml";
         String indexFolderPath = "/media/devilo/GaMeS aNd SeTuPs/datas";
-
-        //String filePath = args[0];
-        //String indexFolderPath = args[1];
 
         long startTime = System.currentTimeMillis();
 

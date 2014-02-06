@@ -1,17 +1,18 @@
 package com.wikise.search;
 
 import com.wikise.util.Classifiers;
+import com.wikise.util.CompressionDecompression;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by Arpit Bhayani on 31/1/14.
  */
 public class FileReadIO {
 
-    private String dictionaryFileName = "meta/dictionary.dat";
+    CompressionDecompression compressionDecompression = null;
+    private String dictionaryFileName = "meta/ndictionary.dat";
     private String infoFileName = "meta/info.dat";
 
     private String[] fileNames = {
@@ -34,6 +35,7 @@ public class FileReadIO {
 
     public FileReadIO(String folderPath) {
 
+        compressionDecompression = new CompressionDecompression();
         if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
             this.indexFolderPath = folderPath + '/';
         }
@@ -46,24 +48,139 @@ public class FileReadIO {
     /**
      * Main search function. This function is exposed to the rest of the world.
      * Gets a posting list for a search query (can have multiple words).
+     *
+     *
      * @param s search query
+     * @param searchFieldsForTerms
      * @return Posting list
      */
-    public ArrayList<String> getPostingList(String s) {
+    public ArrayList<String> getPostingList(ArrayList<HashSet<String>> s, HashMap<String, Integer> searchFieldsForTerms) {
 
         try {
-            return getPostingsForSingleTerm(s);
+            /* In how many words does this doc has appeared ( docId -> count ) */
+            HashMap<String , Integer> documentToWord = new HashMap<String, Integer>();
+            HashMap<String , Double> documentToTfIdf = new HashMap<String, Double>();
+
+            for ( int i = 0 ; i < 26 ; i++ ) {
+                HashSet<String> setOfWords = s.get(i);
+                for ( String searchTerm : setOfWords ) {
+                    //System.out.println(getPostingsForSingleTerm(searchTerm));
+
+                    Integer requiredFields = searchFieldsForTerms.get(searchTerm);
+
+                    if ( requiredFields == null )
+                        requiredFields = 40;    // Title and Body
+
+                    //System.out.println("Required fields for " + searchTerm + " are : " + requiredFields);
+
+                    ArrayList<String> tempList = new ArrayList<String>();
+                    //System.out.println("Getting posting list for " + searchTerm);
+                    tempList = getPostingsForSingleTerm(searchTerm);
+                    //System.out.println("Length is : " + tempList.size());
+                    for ( String entity : tempList ) {
+
+                        int length = entity.length();
+                        StringBuilder docId = new StringBuilder();
+                        int bitRepresentation = 0;
+                        int termFrequency = 0;
+
+                        int j = 0;
+                        char currentChar;
+                        for ( ; (currentChar = entity.charAt(j)) != '$' ; j++ ) {
+                            docId.append(currentChar);
+                        }
+                        for ( j++ ; (currentChar = entity.charAt(j)) != '$' ; j++ ) {
+                            bitRepresentation  = bitRepresentation * 10 + ((int)currentChar - (int)'0');
+                        }
+                        for ( j++ ; j < length && (currentChar = entity.charAt(j)) != '$' ; j++ ) {
+                            termFrequency  = termFrequency * 10 + ((int)currentChar - (int)'0');
+                        }
+
+                        String docIdStr = new String(docId);
+                        if ( ((requiredFields & 32) != 0 && (bitRepresentation & 32) != 0) ||
+                                ((requiredFields & 16) != 0 && (bitRepresentation & 16) != 0) ||
+                                ((requiredFields & 8) != 0 && (bitRepresentation & 8) != 0) ||
+                                ((requiredFields & 4) != 0 && (bitRepresentation & 4) != 0)) {
+
+                            Double oldTfidf = documentToTfIdf.get(docId);
+                            if ( oldTfidf == null )
+                                oldTfidf = Double.valueOf(0);
+                            Double newTfIdf = tfidf(termFrequency , tempList.size() );
+
+                            if ( newTfIdf > oldTfidf )
+                                documentToTfIdf.put(docIdStr , newTfIdf );
+
+                            Integer count = documentToWord.get(docIdStr);
+                            if ( count == null ) {
+                                count = 0;
+                            }
+
+                            ++count;
+                            documentToWord.put( docIdStr , count);
+                        }
+                    }
+                }
+            }
+
+            //System.out.println("Length : " + documentToTfIdf.size());
+            ArrayList<String> docIds = new ArrayList<String>();
+            int K = 15;
+
+            if ( documentToTfIdf.size() == 0 ) {
+                return docIds;
+            }
+
+            double maxtfidf = -1;
+            String maxKey = null;
+
+            for ( int i = 0 ; i < K ; i++ ) {
+
+                for ( String key : documentToTfIdf.keySet() ) {
+
+                    double tfidf = documentToTfIdf.get(key);
+
+                    if ( tfidf > maxtfidf ) {
+                        maxtfidf = tfidf;
+                        maxKey = key;
+                    }
+
+                }
+
+                if ( maxtfidf == -1 ) {
+                    break;
+                }
+                docIds.add(maxKey);
+                //System.out.println("Key : " + maxKey + " and " + maxtfidf);
+                documentToTfIdf.put(maxKey , Double.valueOf(-1));
+                maxtfidf = -1;
+
+            }
+
+            return docIds;
+
+
+            //for ( String docIdStr : documentToTfIdf.keySet() ) {
+            //    System.out.println(docIdStr + "-" + documentToTfIdf.get(docIdStr));
+            //}
+
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
         return null;
+
+    }
+
+    private double tfidf(int tf, int df) {
+
+        return (1+Math.log10(tf)) * Math.log10(14128976/(float)df);
 
     }
 
     private ArrayList<String> getPostingsForSingleTerm(String singleTerm) throws IOException {
 
-        String processedTerm = Classifiers.getStemmedWord(singleTerm.toLowerCase());
+        String processedTerm = Classifiers.getStemmedWord(singleTerm);
 
         if ( singleTerm.length() == 0 )
             return new ArrayList<String>();
@@ -76,6 +193,8 @@ public class FileReadIO {
 
         /* Read from sindexa.idx and get the offset in the file dictionary.dat */
         long offsetInDictionary = getOffsetInDictionary(processedTerm);
+
+        //System.out.println("Offset in ndictionary.dat file : " + offsetInDictionary);
 
         if ( offsetInDictionary == -1 )
             return new ArrayList<String>();
@@ -107,16 +226,52 @@ public class FileReadIO {
             return new ArrayList<String>();
 
         /* Read the dictionary.dat file and get the offset in the indexa.idx */
-        long offset = getOffsetInInvertedIndexFile(offsetInDictionary, processedTerm);
+
+        String offsetCombined = getOffsetInInvertedIndexFile(offsetInDictionary, processedTerm);
+        //System.out.println("Offset combined : " + offsetCombined);
+        int index_ = offsetCombined.indexOf('_');
+
+        if ( index_ == 0 ) {
+            return postingList;
+        }
+
+        long offset = Long.parseLong( offsetCombined.substring(0 , index_ ));
+        long offsetNextWord = Long.parseLong( offsetCombined.substring(index_ + 1));
+        long lengthToBeRead = offsetNextWord - offset;
+        if ( offsetNextWord == -1 ) {
+            lengthToBeRead = -1;
+        }
+
 
         if ( offset == -1 ) {
             return postingList;
         }
 
         /* Read the indexa.idx file and go to offset offsetIn_indexa_File and get the posting list. */
-        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
+
+        //System.out.println("Reading file " + indexFolderPath + "nindex/n" + fileNames[index]);
+        //System.out.println("Going at offset in main posting file : " + offset);
+
+        //System.out.println("Length to be read = " + lengthToBeRead);
+        //System.out.println("Length of file : " + randomAccessFile.length());
+        //System.out.println("Offset = " + offset);
+
+        if ( lengthToBeRead < 1 ) {
+            //
+            // System.out.println("Last word so reading full file from offset offset");
+            lengthToBeRead = randomAccessFile.length() - offset;
+        }
+
+        //System.out.println("Length to be read = " + lengthToBeRead);
+
+        byte[] lineBytes = new byte[(int)lengthToBeRead];
+        //randomAccessFile.read(line, (int) offset, (int)lengthToBeRead - 1);
         randomAccessFile.seek(offset);
-        String line = randomAccessFile.readLine();
+        randomAccessFile.readFully(lineBytes);
+        //System.out.println(compressionDecompression.decompress(line));
+
+        String line = compressionDecompression.decompress(lineBytes);
         String[] splitArray = line.split(":");
 
         for ( String split : splitArray ) {
@@ -128,19 +283,25 @@ public class FileReadIO {
 
     /**
      * Returns the offset in the inverted index given the offset in dictionary.
+     *
      * @param offsetInDictionary
      * @param s
-     * @return
+     * @return OFFSET_NEXTOFFSET
      * @throws IOException
      */
-    private long getOffsetInInvertedIndexFile(long offsetInDictionary, String s) throws IOException {
+    private String getOffsetInInvertedIndexFile(long offsetInDictionary, String s) throws IOException {
 
         RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + dictionaryFileName , "r");
         randomAccessFile.seek(offsetInDictionary);
 
         String line = null;
 
-        while ( (line = randomAccessFile.readLine()) != null ) {
+        boolean hasNextWord = false;
+
+        StringBuilder offsetWord = new StringBuilder();
+        //StringBuilder offsetNextWord = new StringBuilder("-1");
+
+        while ( (line = randomAccessFile.readLine()) != null && line.charAt(0) == s.charAt(0) ) {
             int i = 0 , j = 0;
             int lineLength = line.length();
             int sLength = s.length();
@@ -152,16 +313,46 @@ public class FileReadIO {
 
             if ( i < lineLength && j == sLength && line.charAt(i) == ':' ) {
                 /* Term matched */
-                long offset = 0;
-                for ( i++; i < lineLength ; i++ ) {
-                    offset = offset * 10 + ((int)line.charAt(i)- (int)'0');
-                }
-                return offset;
-            }
 
+                //offsetWord = 0;
+                for ( i++; i < lineLength ; i++ ) {
+                    //offsetWord = offsetWord * 10 + ((int)line.charAt(i)- (int)'0');
+                    offsetWord.append(line.charAt(i));
+                }
+                break;
+            }
         }
 
-        return -1;
+        offsetWord.append('_');
+
+        if ( (line = randomAccessFile.readLine()) != null ) {
+
+
+
+            int i = 0;
+            int lineLength = line.length();
+
+            while ( i < lineLength && line.charAt(i) != ':' ) {
+                i++;
+            }
+
+            if ( i < lineLength && line.charAt(i) == ':' ) {
+                hasNextWord = true;
+                /* Term matched */
+                //offsetNextWord = 0;
+
+                for ( i++; i < lineLength ; i++ ) {
+                    //offsetNextWord = offsetNextWord * 10 + ((int)line.charAt(i)- (int)'0');
+                    offsetWord.append(line.charAt(i));
+                }
+            }
+        }
+
+        if ( hasNextWord == false ) {
+            offsetWord.append("-1");
+        }
+        return new String(offsetWord);
+
     }
 
     /**
@@ -180,7 +371,7 @@ public class FileReadIO {
             return -1;
 
 
-        BufferedReader secondaryReader = new BufferedReader(new FileReader(indexFolderPath + sfileNames[index]));
+        BufferedReader secondaryReader = new BufferedReader(new FileReader(indexFolderPath + "nsindex/n" + sfileNames[index]));
         String line = null;
 
         line = secondaryReader.readLine();
@@ -227,7 +418,7 @@ public class FileReadIO {
                 System.out.println("Out of bound !!");
                 return postingList;
             }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
 
             randomAccessFile.seek(offsetInInvertedIndex);
 
@@ -297,7 +488,7 @@ public class FileReadIO {
 
         try {
 
-            randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+            randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
 
             StringBuffer stringBuffer = new StringBuffer();
 

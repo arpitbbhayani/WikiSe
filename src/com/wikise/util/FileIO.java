@@ -13,9 +13,9 @@ public class FileIO {
     int WORD_BUFFER_SIZE = 500;
 
     private String temporaryFilePrefix = "tempfile";
-    private String dictionaryFileName = "dictionary.dat";
-    private String metaFileName = "metadata.dat";
-    private String infoFileName = "info.dat";
+    private String dictionaryFileName = "meta/dictionary.dat";
+    private String metaFileName = "meta/metadata.dat";
+    private String infoFileName = "meta/info.dat";
 
     private String indexFolderPath = null;
 
