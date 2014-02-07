@@ -1,21 +1,21 @@
 WikiSe : Wikipedia Search Engine
 ====================================
-				@author: Arpit Bhayani
+				Arpit Bhayani
 
 A wikipedia search engine built using:
  - Java
  - XML Parsing using SAX Parser.
  - Ranking Algorithms
 
-It works on Wikipedia XML dumps.
-XML Dump Name : enwiki-latest-pages-articles.xml.bz2
-XML Dump Link : http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+It works on Wikipedia XML dumps.<br/>
+XML Dump Name : enwiki-latest-pages-articles.xml.bz2<br/>
+XML Dump Link : http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2<br/>
 
-Implementation basic:
-High level of indexing which reduces the search time.
-The index terms are hashed to characters 'a' - 'z'
-Index is compressed at bitlevel. ( total size = 9.7GB )
-Special infobox parsing to provide direct answeres if possible.
+Implementation basic:<br/>
+High level of indexing which reduces the search time.<br/>
+The index terms are hashed to characters 'a' - 'z'<br/>
+Index is compressed at bitlevel. ( total size = 9.7GB )<br/>
+Special infobox parsing to provide direct answeres if possible.<br/>
 
 Special Features :
 1. Index compression to make index half of its size. ( bit level compression )
@@ -23,16 +23,16 @@ Special Features :
 
 e.g. Search Query : website:mumbai
 
-Title : mumbai
-Title : mumbai indians
-Title : 2012-13 mumbai f.c. season
-Title : 2008 mumbai attacks
-Title : maharashtra
-Title : public transport in mumbai
-Title : attribution of the 2008 mumbai attacks
-Title : list of constituencies of maharashtra vidhan sabha
-Title : wikipedia:files for deletion/2010 april 13
-Title : list of colleges in mumbai
+Title : mumbai<br/>
+Title : mumbai indians<br/>
+Title : 2012-13 mumbai f.c. season<br/>
+Title : 2008 mumbai attacks<br/>
+Title : maharashtra<br/>
+Title : public transport in mumbai<br/>
+Title : attribution of the 2008 mumbai attacks<br/>
+Title : list of constituencies of maharashtra vidhan sabha<br/>
+Title : wikipedia:files for deletion/2010 april 13<br/>
+Title : list of colleges in mumbai<br/>
 ****** {{url|www.mcgm.gov.in}} ******				<------ Website link
 
 Interesting search :
