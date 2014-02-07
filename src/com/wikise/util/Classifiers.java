@@ -111,6 +111,7 @@ public class Classifiers {
             stopWordsSet.add("be");
             stopWordsSet.add("because");
             stopWordsSet.add("been");
+            stopWordsSet.add("best");
             stopWordsSet.add("but");
             stopWordsSet.add("by");
             stopWordsSet.add("can");

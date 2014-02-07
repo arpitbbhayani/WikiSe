@@ -13,20 +13,27 @@ public class FileReadIO {
 
     CompressionDecompression compressionDecompression = null;
     private String dictionaryFileName = "meta/ndictionary.dat";
-    private String infoFileName = "meta/info.dat";
+    private String cacheFileName = "meta/cache.txt";
+
+    private HashMap<String,ArrayList<String>> wikiCache = null;
 
     private String[] fileNames = {
-            "indexa.idx" ,"indexb.idx" ,"indexc.idx" ,"indexd.idx" ,"indexe.idx" ,"indexf.idx" ,"indexg.idx" ,
-            "indexh.idx" ,"indexi.idx" ,"indexj.idx" ,"indexk.idx" ,"indexl.idx" ,"indexm.idx" ,"indexn.idx" ,
-            "indexo.idx" ,"indexp.idx" ,"indexq.idx" ,"indexr.idx" ,"indexs.idx" ,"indext.idx" ,"indexu.idx" ,
-            "indexv.idx" ,"indexw.idx" ,"indexx.idx" ,"indexy.idx" ,"indexz.idx"
+            "nindex/nindexa.idx" ,"nindex/nindexb.idx" ,"nindex/nindexc.idx" ,"nindex/nindexd.idx" ,"nindex/nindexe.idx",
+            "nindex/nindexf.idx" ,"nindex/nindexg.idx" ,"nindex/nindexh.idx" ,"nindex/nindexi.idx" ,"nindex/nindexj.idx",
+            "nindex/nindexk.idx" ,"nindex/nindexl.idx" ,"nindex/nindexm.idx" ,"nindex/nindexn.idx" ,"nindex/nindexo.idx",
+            "nindex/nindexp.idx" ,"nindex/nindexq.idx" ,"nindex/nindexr.idx" ,"nindex/nindexs.idx" ,"nindex/nindext.idx",
+            "nindex/nindexu.idx" ,"nindex/nindexv.idx" ,"nindex/nindexw.idx" ,"nindex/nindexx.idx" ,"nindex/nindexy.idx",
+            "nindex/nindexz.idx"
     };
 
     String[] sfileNames = {
-            "sindexa.idx" ,"sindexb.idx" ,"sindexc.idx" ,"sindexd.idx" ,"sindexe.idx" ,"sindexf.idx" ,"sindexg.idx" ,
-            "sindexh.idx" ,"sindexi.idx" ,"sindexj.idx" ,"sindexk.idx" ,"sindexl.idx" ,"sindexm.idx" ,"sindexn.idx" ,
-            "sindexo.idx" ,"sindexp.idx" ,"sindexq.idx" ,"sindexr.idx" ,"sindexs.idx" ,"sindext.idx" ,"sindexu.idx" ,
-            "sindexv.idx" ,"sindexw.idx" ,"sindexx.idx" ,"sindexy.idx" ,"sindexz.idx"
+            "nsindex/nsindexa.idx" ,"nsindex/nsindexb.idx" ,"nsindex/nsindexc.idx" ,"nsindex/nsindexd.idx" ,
+            "nsindex/nsindexe.idx" ,"nsindex/nsindexf.idx" ,"nsindex/nsindexg.idx" ,"nsindex/nsindexh.idx" ,
+            "nsindex/nsindexi.idx" ,"nsindex/nsindexj.idx" ,"nsindex/nsindexk.idx" ,"nsindex/nsindexl.idx" ,
+            "nsindex/nsindexm.idx" ,"nsindex/nsindexn.idx" ,"nsindex/nsindexo.idx" ,"nsindex/nsindexp.idx" ,
+            "nsindex/nsindexq.idx" ,"nsindex/nsindexr.idx" ,"nsindex/nsindexs.idx" ,"nsindex/nsindext.idx" ,
+            "nsindex/nsindexu.idx" ,"nsindex/nsindexv.idx" ,"nsindex/nsindexw.idx" ,"nsindex/nsindexx.idx" ,
+            "nsindex/nsindexy.idx" ,"nsindex/nsindexz.idx"
     };
 
     private String indexFolderPath = null;
@@ -35,6 +42,7 @@ public class FileReadIO {
 
     public FileReadIO(String folderPath) {
 
+        wikiCache = new HashMap<String, ArrayList<String>>();
         compressionDecompression = new CompressionDecompression();
         if ( folderPath.charAt(folderPath.length()-1) != '/' ) {
             this.indexFolderPath = folderPath + '/';
@@ -64,19 +72,16 @@ public class FileReadIO {
             for ( int i = 0 ; i < 26 ; i++ ) {
                 HashSet<String> setOfWords = s.get(i);
                 for ( String searchTerm : setOfWords ) {
-                    //System.out.println(getPostingsForSingleTerm(searchTerm));
 
                     Integer requiredFields = searchFieldsForTerms.get(searchTerm);
+                    if ( Classifiers.isStopword(searchTerm) )
+                        continue;
 
                     if ( requiredFields == null )
-                        requiredFields = 40;    // Title and Body
-
-                    //System.out.println("Required fields for " + searchTerm + " are : " + requiredFields);
+                        requiredFields = 40;
 
                     ArrayList<String> tempList = new ArrayList<String>();
-                    //System.out.println("Getting posting list for " + searchTerm);
                     tempList = getPostingsForSingleTerm(searchTerm);
-                    //System.out.println("Length is : " + tempList.size());
                     for ( String entity : tempList ) {
 
                         int length = entity.length();
@@ -122,7 +127,6 @@ public class FileReadIO {
                 }
             }
 
-            //System.out.println("Length : " + documentToTfIdf.size());
             ArrayList<String> docIds = new ArrayList<String>();
             int K = 15;
 
@@ -145,24 +149,15 @@ public class FileReadIO {
                     }
 
                 }
-
                 if ( maxtfidf == -1 ) {
                     break;
                 }
                 docIds.add(maxKey);
-                //System.out.println("Key : " + maxKey + " and " + maxtfidf);
                 documentToTfIdf.put(maxKey , Double.valueOf(-1));
                 maxtfidf = -1;
-
             }
 
             return docIds;
-
-
-            //for ( String docIdStr : documentToTfIdf.keySet() ) {
-            //    System.out.println(docIdStr + "-" + documentToTfIdf.get(docIdStr));
-            //}
-
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -194,16 +189,15 @@ public class FileReadIO {
         /* Read from sindexa.idx and get the offset in the file dictionary.dat */
         long offsetInDictionary = getOffsetInDictionary(processedTerm);
 
-        //System.out.println("Offset in ndictionary.dat file : " + offsetInDictionary);
-
         if ( offsetInDictionary == -1 )
             return new ArrayList<String>();
 
-        /* Go to the dictionary.dat at the given offset,
-          searches the term in dictionary.dat, gets the offset -> this offset is in the indexa.idx file.
-          term.
-          The indexa.idx file where the posting list is stored.
-        */
+        /*
+         * Go to the dictionary.dat at the given offset,
+         * searches the term in dictionary.dat, gets the offset -> this offset is in the indexa.idx file.
+         * term.
+         * The indexa.idx file where the posting list is stored.
+         */
         return getPostingsListForTerm(processedTerm, offsetInDictionary);
 
     }
@@ -226,9 +220,7 @@ public class FileReadIO {
             return new ArrayList<String>();
 
         /* Read the dictionary.dat file and get the offset in the indexa.idx */
-
         String offsetCombined = getOffsetInInvertedIndexFile(offsetInDictionary, processedTerm);
-        //System.out.println("Offset combined : " + offsetCombined);
         int index_ = offsetCombined.indexOf('_');
 
         if ( index_ == 0 ) {
@@ -242,34 +234,20 @@ public class FileReadIO {
             lengthToBeRead = -1;
         }
 
-
         if ( offset == -1 ) {
             return postingList;
         }
 
         /* Read the indexa.idx file and go to offset offsetIn_indexa_File and get the posting list. */
-        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
-
-        //System.out.println("Reading file " + indexFolderPath + "nindex/n" + fileNames[index]);
-        //System.out.println("Going at offset in main posting file : " + offset);
-
-        //System.out.println("Length to be read = " + lengthToBeRead);
-        //System.out.println("Length of file : " + randomAccessFile.length());
-        //System.out.println("Offset = " + offset);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
 
         if ( lengthToBeRead < 1 ) {
-            //
-            // System.out.println("Last word so reading full file from offset offset");
             lengthToBeRead = randomAccessFile.length() - offset;
         }
 
-        //System.out.println("Length to be read = " + lengthToBeRead);
-
         byte[] lineBytes = new byte[(int)lengthToBeRead];
-        //randomAccessFile.read(line, (int) offset, (int)lengthToBeRead - 1);
         randomAccessFile.seek(offset);
         randomAccessFile.readFully(lineBytes);
-        //System.out.println(compressionDecompression.decompress(line));
 
         String line = compressionDecompression.decompress(lineBytes);
         String[] splitArray = line.split(":");
@@ -286,7 +264,7 @@ public class FileReadIO {
      *
      * @param offsetInDictionary
      * @param s
-     * @return OFFSET_NEXTOFFSET
+     * @return &lt;offset&gt_&lt;next_offset&gt;
      * @throws IOException
      */
     private String getOffsetInInvertedIndexFile(long offsetInDictionary, String s) throws IOException {
@@ -299,7 +277,6 @@ public class FileReadIO {
         boolean hasNextWord = false;
 
         StringBuilder offsetWord = new StringBuilder();
-        //StringBuilder offsetNextWord = new StringBuilder("-1");
 
         while ( (line = randomAccessFile.readLine()) != null && line.charAt(0) == s.charAt(0) ) {
             int i = 0 , j = 0;
@@ -313,10 +290,7 @@ public class FileReadIO {
 
             if ( i < lineLength && j == sLength && line.charAt(i) == ':' ) {
                 /* Term matched */
-
-                //offsetWord = 0;
                 for ( i++; i < lineLength ; i++ ) {
-                    //offsetWord = offsetWord * 10 + ((int)line.charAt(i)- (int)'0');
                     offsetWord.append(line.charAt(i));
                 }
                 break;
@@ -326,8 +300,6 @@ public class FileReadIO {
         offsetWord.append('_');
 
         if ( (line = randomAccessFile.readLine()) != null ) {
-
-
 
             int i = 0;
             int lineLength = line.length();
@@ -339,10 +311,7 @@ public class FileReadIO {
             if ( i < lineLength && line.charAt(i) == ':' ) {
                 hasNextWord = true;
                 /* Term matched */
-                //offsetNextWord = 0;
-
                 for ( i++; i < lineLength ; i++ ) {
-                    //offsetNextWord = offsetNextWord * 10 + ((int)line.charAt(i)- (int)'0');
                     offsetWord.append(line.charAt(i));
                 }
             }
@@ -370,8 +339,7 @@ public class FileReadIO {
         if ( index < 0 || index > 25 )
             return -1;
 
-
-        BufferedReader secondaryReader = new BufferedReader(new FileReader(indexFolderPath + "nsindex/n" + sfileNames[index]));
+        BufferedReader secondaryReader = new BufferedReader(new FileReader(indexFolderPath + sfileNames[index]));
         String line = null;
 
         line = secondaryReader.readLine();
@@ -390,48 +358,6 @@ public class FileReadIO {
         }
 
         return prevOffset;
-    }
-
-    /**
-     * Gets the posting list for a term s.
-     * @param s search term (stemmed)
-     * @return Posting list for a single term.
-     * @throws IOException
-     */
-    private ArrayList<String> getPostingListForTerm(String s) throws  IOException {
-
-        ArrayList<String> postingList = new ArrayList<String>();
-
-        //System.out.println("Stemmed term : " + processedTerm);
-        long offsetInInvertedIndex = getOffsetInInvertedIndex(s);
-
-        if ( offsetInInvertedIndex == -1 ) {
-            //System.out.println("Term not found");
-            return postingList;
-        }
-        else {
-            //System.out.println("Term found at dictionary offset : " + offsetInInvertedIndex);
-
-            int index = ((int)s.charAt(0)) - ((int)'a');
-            if ( index < 0 || index > 25 ) {
-                /* Non-english words */
-                System.out.println("Out of bound !!");
-                return postingList;
-            }
-            RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
-
-            randomAccessFile.seek(offsetInInvertedIndex);
-
-            String line = randomAccessFile.readLine();
-            String[] splitArray = line.split(":");
-
-            for ( String split : splitArray ) {
-                postingList.add(split);
-            }
-
-        }
-
-        return postingList;
     }
 
     /**
@@ -471,39 +397,95 @@ public class FileReadIO {
 
 
     /**
+     * @deprecated
+     * Load cache of most frequest words.
+     */
+    public void loadCache() {
+
+        BufferedReader bufferedReader = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(indexFolderPath + cacheFileName));
+            String line = null;
+
+            while ( (line=bufferedReader.readLine()) != null ) {
+                System.out.println("Cache load with : " + line);
+                if ( !Classifiers.isStopword(line) )
+                    wikiCache.put(line,getPostingsForSingleTerm(line));
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bufferedReader.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    /**
+     * @deprecated
+     * Gets the posting list for a term s.
+     * @param s search term (stemmed)
+     * @return Posting list for a single term.
+     * @throws IOException
+     */
+    private ArrayList<String> getPostingListForTerm(String s) throws  IOException {
+
+        ArrayList<String> postingList = new ArrayList<String>();
+
+        long offsetInInvertedIndex = getOffsetInInvertedIndex(s);
+
+        if ( offsetInInvertedIndex == -1 ) {
+            return postingList;
+        }
+
+        int index = ((int)s.charAt(0)) - ((int)'a');
+
+        if ( index < 0 || index > 25 ) {
+            return postingList;
+        }
+
+        RandomAccessFile randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
+        randomAccessFile.seek(offsetInInvertedIndex);
+        String line = randomAccessFile.readLine();
+        String[] splitArray = line.split(":");
+        for ( String split : splitArray ) {
+            postingList.add(split);
+        }
+
+        return postingList;
+    }
+
+
+    /**
+     * @deprecated
      * This method sequentially searches using HashedIO i.e. Trie.
      * @param startChar
      * @param listOfSeeks
      * @return
      */
     public TreeSet<Integer> readData(char startChar , TreeSet<Integer> listOfSeeks) {
-
         if ( listOfSeeks == null )
             return new TreeSet<Integer>();
-
         TreeSet<Integer> pageIds = new TreeSet<Integer>();
         int index = ((int)startChar) - ((int)'a');
-
         RandomAccessFile randomAccessFile = null;
-
         try {
-
-            randomAccessFile = new RandomAccessFile(indexFolderPath + "nindex/n" + fileNames[index] , "r");
-
-            StringBuffer stringBuffer = new StringBuffer();
-
+            randomAccessFile = new RandomAccessFile(indexFolderPath + fileNames[index] , "r");
             for ( long seekLocation : listOfSeeks ) {
-
                 randomAccessFile.seek(seekLocation);
-
                 String line = randomAccessFile.readLine();
                 String[] splitted = line.split(":");
-
                 for ( String split : splitted ) {
                     if ( Character.isDigit(split.charAt(0)) )
                         pageIds.add(new Integer(split));
                 }
-
             }
         }
         catch (IOException e) {
@@ -516,7 +498,6 @@ public class FileReadIO {
                 e.printStackTrace();
             }
         }
-
         return pageIds;
     }
 

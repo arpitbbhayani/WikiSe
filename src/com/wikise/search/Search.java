@@ -12,284 +12,44 @@ public class Search {
 
     private String indexFolderPath = null;
     private TreeMap<String,Integer> pageMetadataMap = null;
+    private FileReadIO fileReadIO = null;
 
     public Search(FileReadIO fileReadIO , String indexFolderPath) {
         this.indexFolderPath = indexFolderPath;
+        this.fileReadIO = fileReadIO;
     }
 
-    private ArrayList<String> search(FileReadIO fileReadIO, ArrayList<HashSet<String>> searchTermMap, HashMap<String, Integer> searchFieldsForTerms) {
-
+    private ArrayList<String> search(ArrayList<HashSet<String>> searchTermMap, HashMap<String, Integer> searchFieldsForTerms) {
         return fileReadIO.getPostingList(searchTermMap , searchFieldsForTerms);
-
     }
 
-    public static void main(String[] args) {
+    /*private void loadCache() {
 
-        int GEOBOX = 1 ;    // 6th bit from LSB
-        int CATEGORY = 16 ;    // 5th bit from LSB
-        int TITLE = 32 ;        // 4th bit from LSB
-        int BODY = 8 ;         // 3th bit from LSB
-        int LINKS = 4 ;        // 2th bit from LSB
-        int INFOBOX = 2 ;      // 1th bit from LSB
+        BufferedReader bufferedReader = null;
 
-        String indexFolderPath = "/media/devilo/GaMeS aNd SeTuPs/data/";
+        try {
+            bufferedReader = new BufferedReader(new FileReader(indexFolderPath + "meta/cache.txt"));
 
-        /*
-         *  HashedFileReadIO hashedFileReadIO = new HashedFileReadIO(indexFolderPath);
-         *  HashedFileSecondaryReadIO fileSecondaryReadIO = new HashedFileSecondaryReadIO(indexFolderPath);
-         */
+            String line = null;
 
-        Classifiers.initialize();
-        FileReadIO fileReadIO = new FileReadIO(indexFolderPath);
-        Search wikiSearch = new Search(fileReadIO , indexFolderPath);
-
-        Scanner scanner = new Scanner(System.in);
-
-        //long startTimeMetadata = System.currentTimeMillis();
-
-        wikiSearch.loadPageMetadata(indexFolderPath);
-
-        //long stopTimeMetadata = System.currentTimeMillis();
-        //float elapsedTimeMetadata = (stopTimeMetadata - startTimeMetadata)/1000f;
-
-        System.out.println("Meta load completed ...");
-
-        for ( int i = 0 ; i < 100 ; i++ ) {
-
-            String searchQuery = scanner.nextLine();
-
-            long startTime = System.currentTimeMillis();
-
-            /*
-             * Old code :
-             * TreeSet<Integer> listOfDocId = search(searchQuery.toLowerCase() , hashedFileReadIO , fileSecondaryReadIO);
-             * formatOutput(listOfDocId);
-             */
-
-            ArrayList<HashSet<String>> searchTermMap = new ArrayList<HashSet<String>>();
-            for ( int j = 0 ; j < 26 ; j++ ) {
-                searchTermMap.add(new HashSet<String>());
+            while ( (line = bufferedReader.readLine()) != null ) {
+                this.wikiCache.put(line , )
             }
-
-            String infoboxKey = null;
-            String infoboxValue1 = null;
-            boolean isInfoboxQuery = false;
-
-            HashMap<String , Integer> searchFieldsForTerms = new HashMap<String, Integer>();
-
-            String[] searchTokens = searchQuery.split(" ");
-            for ( String s : searchTokens ) {
-
-                s = s.toLowerCase();
-                int index = s.indexOf(':');
-                if ( index == -1 ) {
-                    // non field query
-                    Set<String> list = searchTermMap.get((int) s.charAt(0) - (int) 'a');
-                    if ( list == null ) {
-                        list = new HashSet<String>();
-                    }
-                    list.add(s);
-
-                }
-                else {
-
-                    if ( index == -1 ) {
-                        char c = s.charAt(0);
-                        index = (int)c - (int)'a';
-                        Set<String> list = searchTermMap.get(index);
-                        list.add(s);
-                        continue;
-                    }
-                    String type = s.substring(0,index).toLowerCase();
-                    String value = s.substring(index+1);
-
-                    char c = value.charAt(0);
-
-                    index = (int)c - (int)'a';
-
-                    Set<String> list = searchTermMap.get(index);
-                    list.add(value);
-
-                    if ( type.equals("t") ) {
-
-                        Integer val = searchFieldsForTerms.get(value);
-                        if ( val == null )
-                            val = 0;
-                        val = val | TITLE;
-                        searchFieldsForTerms.put(value , val);
-
-                    }
-                    else if (type.equals("b")) {
-
-                        Integer val = searchFieldsForTerms.get(value);
-                        if ( val == null )
-                            val = 0;
-                        val = val | BODY;
-                        searchFieldsForTerms.put(value , val);
-                    }
-                    else if (type.equals("l")) {
-
-                        Integer val = searchFieldsForTerms.get(value);
-                        if ( val == null )
-                            val = 0;
-                        val = val | LINKS;
-                        searchFieldsForTerms.put(value , val);
-                    }
-                    else if (type.equals("c")) {
-
-                        Integer val = searchFieldsForTerms.get(value);
-                        if ( val == null )
-                            val = 0;
-                        val = val | CATEGORY;
-                        searchFieldsForTerms.put(value , val);
-                    }
-                    else {
-                        // Infobox Query
-
-                        infoboxKey = type;
-                        Set<String> list1 = searchTermMap.get((int) value.charAt(0) - (int) 'a');
-                        if ( list1 == null ) {
-                            list1 = new HashSet<String>();
-                        }
-                        list1.add(value);
-                        isInfoboxQuery = true;
-
-                        //wikiSearch.searchInTitleOnly();
-
-                    }
-                }
-            }
-
-            /*for ( String key : searchFieldsForTerms.keySet() ) {
-                System.out.println("Searching " + key + " in " + searchFieldsForTerms.get(key));
-            }
-
-            for ( int j = 0 ; j < 26 ; j++ ) {
-                System.out.println("CharacterWise " + searchTermMap.get(j) );
-            }*/
-
-            ArrayList<String> listDocIds = wikiSearch.search(fileReadIO , searchTermMap , searchFieldsForTerms);
-
-            if ( listDocIds == null )
-                listDocIds = new ArrayList<String>();
-
-            String maxDocId = null;
-            long maxOffset = 0;
-
-            ArrayList<String> listOfTitles = new ArrayList<String>();
-
-            int countOf0Title = 0;
-
-            for ( String docId : listDocIds ) {
-
-                try {
-                    String temp = wikiSearch.getWikiPageTitle(docId);
-                    int indexOf = temp.indexOf(':');
-                    String offset = temp.substring(0,indexOf);
-                    String title = temp.substring(indexOf + 1);
-
-                    //System.out.println("Offset : " + offset + " title : " + title);
-
-                    if ( offset.equals("0") || title.indexOf(':') >= 0 ) {
-                        listOfTitles.add(0,title);
-                        countOf0Title ++;
-                    }
-                    else {
-                        listOfTitles.add(title);
-                        if ( maxDocId == null ) {
-                            maxDocId = docId;
-                            maxOffset = Long.parseLong(offset);
-                        }
-                    }
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            for ( int j = 0 ; j < countOf0Title ; j++ ) {
-                String s = listOfTitles.remove(0);
-                listOfTitles.add(listOfTitles.size() , s);
-            }
-
-            int limit = 10;
-            if ( listOfTitles.size() < limit ) {
-                limit = listOfTitles.size();
-            }
-            for ( int j = 0 ; j < limit ; j++ ) {
-                System.out.println("Title : " + listOfTitles.get(j));
-            }
-
-            if ( limit == 0 ) {
-                System.out.println("No results found !");
-            }
-
-            if ( isInfoboxQuery && maxOffset != 0 ) {
-                // go to info.dat for docID and offset maxOffset.
-
-                RandomAccessFile randomAccessFile = null;
-                try {
-                    randomAccessFile = new RandomAccessFile(indexFolderPath + "meta/info.dat" , "r");
-                    randomAccessFile.seek(maxOffset);
-                    String line = randomAccessFile.readLine();
-
-                    HashMap<String,String> infoboxMap = new HashMap<String, String>();
-
-                    while ( line != null && !line.equals(":") ) {
-                        //System.out.println(line);
-                        int indexOf = line.indexOf(':');
-                        if ( indexOf == -1 ) {
-                            line = randomAccessFile.readLine();
-                            continue;
-                        }
-
-                        String key = line.substring(0,indexOf);
-                        String value = line.substring(indexOf+1);
-                        infoboxMap.put(key,value);
-                        line = randomAccessFile.readLine();
-                    }
-
-                    int minEditDistance = 100;
-                    String minKey = null;
-
-                    for ( String key : infoboxMap.keySet() ) {
-
-                        if ( key.contains(infoboxKey) ) {
-                            int currentDistance = editDistance(key , infoboxKey);
-                            if ( currentDistance < minEditDistance ) {
-                                minEditDistance = currentDistance;
-                                minKey = key;
-                            }
-                        }
-
-                    }
-
-                    if ( minKey != null )
-                        System.out.println("****** " + minKey + " -> " + infoboxMap.get(minKey) + " ******");
-
-
-                }
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-                finally {
-                    try {
-                        randomAccessFile.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-
-            //long stopTime = System.currentTimeMillis();
-            //float elapsedTime = (stopTime - startTime)/1000f;
-
-            //System.out.println(elapsedTime);
 
         }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bufferedReader.close();
+            }
+            catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-    }
+    }*/
 
     public static int editDistance(String str1,String str2) {
         int[][] distance = new int[str1.length() + 1][str2.length() + 1];
@@ -399,9 +159,8 @@ public class Search {
 
     /**
      * Reads the metadata and create an online index.
-     * @param indexFolderPath path of the index folder.
      */
-    private TreeMap<String , Integer> loadPageMetadata(String indexFolderPath) {
+    private TreeMap<String , Integer> loadPageMetadata() {
 
         pageMetadataMap = new TreeMap<String, Integer>();
         BufferedReader bufferedReader = null;
@@ -453,6 +212,268 @@ public class Search {
 
         return  pageMetadataMap;
 
+    }
+
+    public static void main(String[] args) {
+
+        int GEOBOX = 1 ;    // 6th bit from LSB
+        int CATEGORY = 16 ;    // 5th bit from LSB
+        int TITLE = 32 ;        // 4th bit from LSB
+        int BODY = 8 ;         // 3th bit from LSB
+        int LINKS = 4 ;        // 2th bit from LSB
+        int INFOBOX = 2 ;      // 1th bit from LSB
+
+        String indexFolderPath = "/media/devilo/GaMeS aNd SeTuPs/data/";
+
+        /*
+         *  HashedFileReadIO hashedFileReadIO = new HashedFileReadIO(indexFolderPath);
+         *  HashedFileSecondaryReadIO fileSecondaryReadIO = new HashedFileSecondaryReadIO(indexFolderPath);
+         */
+
+        Classifiers.initialize();
+        FileReadIO fileReadIO = new FileReadIO(indexFolderPath);
+        Search wikiSearch = new Search(fileReadIO , indexFolderPath);
+
+        Scanner scanner = new Scanner(System.in);
+
+        long startTimeMetadata = System.currentTimeMillis();
+
+        wikiSearch.loadPageMetadata();
+
+        long stopTimeMetadata = System.currentTimeMillis();
+        float elapsedTimeMetadata = (stopTimeMetadata - startTimeMetadata)/1000f;
+
+        System.out.println("Meta load completed ..." + elapsedTimeMetadata + " s");
+
+        for ( int i = 0 ; i < 100 ; i++ ) {
+
+            String searchQuery = scanner.nextLine();
+
+            long startTime = System.currentTimeMillis();
+
+            /*
+             * Old code :
+             * TreeSet<Integer> listOfDocId = search(searchQuery.toLowerCase() , hashedFileReadIO , fileSecondaryReadIO);
+             * formatOutput(listOfDocId);
+             */
+
+            ArrayList<HashSet<String>> searchTermMap = new ArrayList<HashSet<String>>();
+            for ( int j = 0 ; j < 26 ; j++ ) {
+                searchTermMap.add(new HashSet<String>());
+            }
+
+            String infoboxKey = null;
+            boolean isInfoboxQuery = false;
+
+            HashMap<String , Integer> searchFieldsForTerms = new HashMap<String, Integer>();
+
+            String[] searchTokens = searchQuery.split(" ");
+            for ( String s : searchTokens ) {
+
+                s = s.toLowerCase();
+                int index = s.indexOf(':');
+                if ( index == -1 ) {
+                    // non field query
+                    Set<String> list = searchTermMap.get((int) s.charAt(0) - (int) 'a');
+                    if ( list == null ) {
+                        list = new HashSet<String>();
+                    }
+                    list.add(s);
+
+                }
+                else {
+
+                    if ( index == -1 ) {
+                        char c = s.charAt(0);
+                        index = (int)c - (int)'a';
+                        Set<String> list = searchTermMap.get(index);
+                        list.add(s);
+                        continue;
+                    }
+                    String type = s.substring(0,index).toLowerCase();
+                    String value = s.substring(index+1);
+
+                    char c = value.charAt(0);
+
+                    index = (int)c - (int)'a';
+
+                    Set<String> list = searchTermMap.get(index);
+                    list.add(value);
+
+                    if ( type.equals("t") ) {
+
+                        Integer val = searchFieldsForTerms.get(value);
+                        if ( val == null )
+                            val = 0;
+                        val = val | TITLE;
+                        searchFieldsForTerms.put(value , val);
+
+                    }
+                    else if (type.equals("b")) {
+
+                        Integer val = searchFieldsForTerms.get(value);
+                        if ( val == null )
+                            val = 0;
+                        val = val | BODY;
+                        searchFieldsForTerms.put(value , val);
+                    }
+                    else if (type.equals("l")) {
+
+                        Integer val = searchFieldsForTerms.get(value);
+                        if ( val == null )
+                            val = 0;
+                        val = val | LINKS;
+                        searchFieldsForTerms.put(value , val);
+                    }
+                    else if (type.equals("c")) {
+
+                        Integer val = searchFieldsForTerms.get(value);
+                        if ( val == null )
+                            val = 0;
+                        val = val | CATEGORY;
+                        searchFieldsForTerms.put(value , val);
+                    }
+                    else {
+                        // Infobox Query
+
+                        infoboxKey = type;
+                        Set<String> list1 = searchTermMap.get((int) value.charAt(0) - (int) 'a');
+                        if ( list1 == null ) {
+                            list1 = new HashSet<String>();
+                        }
+                        list1.add(value);
+                        isInfoboxQuery = true;
+
+                        //wikiSearch.searchInTitleOnly();
+
+                    }
+                }
+            }
+
+            /*for ( String key : searchFieldsForTerms.keySet() ) {
+                System.out.println("Searching " + key + " in " + searchFieldsForTerms.get(key));
+            }
+
+            for ( int j = 0 ; j < 26 ; j++ ) {
+                System.out.println("CharacterWise " + searchTermMap.get(j) );
+            }*/
+
+            ArrayList<String> listDocIds = wikiSearch.search(searchTermMap , searchFieldsForTerms);
+
+            if ( listDocIds == null )
+                listDocIds = new ArrayList<String>();
+
+            String maxDocId = null;
+            long maxOffset = 0;
+
+            ArrayList<String> listOfTitles = new ArrayList<String>();
+
+            int countOf0Title = 0;
+
+            for ( String docId : listDocIds ) {
+
+                try {
+                    String temp = wikiSearch.getWikiPageTitle(docId);
+                    int indexOf = temp.indexOf(':');
+                    String offset = temp.substring(0,indexOf);
+                    String title = temp.substring(indexOf + 1);
+
+                    //System.out.println("Offset : " + offset + " title : " + title);
+
+                    if ( offset.equals("0") || title.indexOf(':') >= 0 ) {
+                        listOfTitles.add(0,title);
+                        countOf0Title ++;
+                    }
+                    else {
+                        listOfTitles.add(title);
+                        if ( maxDocId == null ) {
+                            maxDocId = docId;
+                            maxOffset = Long.parseLong(offset);
+                        }
+                    }
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            for ( int j = 0 ; j < countOf0Title ; j++ ) {
+                String s = listOfTitles.remove(0);
+                listOfTitles.add(listOfTitles.size() , s);
+            }
+
+            int limit = 10;
+            if ( listOfTitles.size() < limit ) {
+                limit = listOfTitles.size();
+            }
+            for ( int j = 0 ; j < limit ; j++ ) {
+                System.out.println("Title : " + listOfTitles.get(j));
+            }
+
+            if ( limit == 0 ) {
+                System.out.println("No results found !");
+            }
+
+            if ( isInfoboxQuery && maxOffset != 0 ) {
+                // go to info.dat for docID and offset maxOffset.
+
+                RandomAccessFile randomAccessFile = null;
+                try {
+                    randomAccessFile = new RandomAccessFile(indexFolderPath + "meta/info.dat" , "r");
+                    randomAccessFile.seek(maxOffset);
+                    String line = randomAccessFile.readLine();
+
+                    HashMap<String,String> infoboxMap = new HashMap<String, String>();
+
+                    while ( line != null && !line.equals(":") ) {
+                        //System.out.println(line);
+                        int indexOf = line.indexOf(':');
+                        if ( indexOf == -1 ) {
+                            line = randomAccessFile.readLine();
+                            continue;
+                        }
+
+                        String key = line.substring(0,indexOf);
+                        String value = line.substring(indexOf+1);
+                        infoboxMap.put(key,value);
+                        line = randomAccessFile.readLine();
+                    }
+
+                    int minEditDistance = 100;
+                    String minKey = null;
+
+                    for ( String key : infoboxMap.keySet() ) {
+
+                        if ( key.contains(infoboxKey) ) {
+                            int currentDistance = editDistance(key , infoboxKey);
+                            if ( currentDistance < minEditDistance ) {
+                                minEditDistance = currentDistance;
+                                minKey = key;
+                            }
+                        }
+
+                    }
+
+                    if ( minKey != null )
+                        System.out.println("****** " + minKey + " -> " + infoboxMap.get(minKey) + " ******");
+
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally {
+                    try {
+                        randomAccessFile.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            //long stopTime = System.currentTimeMillis();
+            //float elapsedTime = (stopTime - startTime)/1000f;
+
+            //System.out.println(elapsedTime);
+        }
     }
 
 }
