@@ -39,6 +39,18 @@ Title : list of colleges in mumbai<br/>
 Interesting search :
 pratieik
 chudail
+joey tribbiani
+cartoon
+
+nick:phoebe buffay
+powers:batman
+age:dimple kapadia
+population:amravati
+location:takla lake
+portrayer:joey tribbiani
+series:joey tribbiani
+t:priyanka
+t:priyanka age:priyanka
 
 Statistics:
  On a mchine of configuration :

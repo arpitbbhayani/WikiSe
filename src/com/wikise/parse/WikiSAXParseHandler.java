@@ -3,7 +3,6 @@ package com.wikise.parse;
 import com.wikise.process.TermObject;
 import com.wikise.process.WikiTextParser;
 import com.wikise.util.FileIO;
-import com.wikise.util.HashedTrie;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -163,7 +162,7 @@ public class WikiSAXParseHandler extends DefaultHandler {
 
         }
         else if ( endTag.equalsIgnoreCase("title") ) {
-            wikiPage.setPageTitile(new String(stringBuilder).toLowerCase());
+            wikiPage.setPageTitle(new String(stringBuilder).toLowerCase());
         }
         else if ( endTag.equalsIgnoreCase("id") ) {
             if ( parentTag.equalsIgnoreCase("page")) {

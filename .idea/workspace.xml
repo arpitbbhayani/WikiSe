@@ -105,22 +105,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Search.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Search.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="7260">
+            <state line="430" column="26" selection-start="14808" selection-end="14808" vertical-scroll-proportion="0.41291586" vertical-offset="6194" max-vertical-offset="7380">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#7448#7465#0" expanded="true" />
+                <element signature="e#7644#7661#0" expanded="true" />
+                <element signature="e#12655#12663#0" expanded="true" />
+                <element signature="e#14695#14711#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileReadIO.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="399" column="18" selection-start="14186" selection-end="14186" vertical-scroll-proportion="0.38366717" vertical-offset="5676" max-vertical-offset="7590">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -128,16 +122,27 @@
       <file leaf-file-name="Classifiers.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Classifiers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="34" selection-start="10447" selection-end="10447" vertical-scroll-proportion="0.0" vertical-offset="1695" max-vertical-offset="3360">
+            <state line="116" column="37" selection-start="10524" selection-end="10524" vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="3375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WikiTextParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+      <file leaf-file-name="FileReadIO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="37" selection-start="561" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="8865">
+            <state line="110" column="17" selection-start="5049" selection-end="5049" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="7530">
+              <folding>
+                <element signature="e#2995#3011#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchThread.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wikise/search/SearchThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="12" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -153,15 +158,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/wikise/parse/AbstractWikiSAXParseHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/wikise/parse/Revision.java" />
-        <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/ClassMapping.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageRevision.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiInfoBox.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageRevisionContributor.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPage.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageConsice.java" />
-        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/Classifiers.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/com/wikise/util/Stemmer.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/main/Stemmer.java" />
@@ -199,9 +200,15 @@
         <option value="$PROJECT_DIR$/src/com/wikise/util/FileIO.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/util/CompressionDecompression.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/util/UtilCodes.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Median.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/SearchResult.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/SearchResultComparator.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/util/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/SearchThread.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/util/Classifiers.java" />
-        <option value="$PROJECT_DIR$/src/com/wikise/search/Search.java" />
         <option value="$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java" />
+        <option value="$PROJECT_DIR$/src/com/wikise/search/Search.java" />
       </list>
     </option>
   </component>
@@ -210,6 +217,22 @@
     <option name="y" value="-4" />
     <option name="width" value="1368" />
     <option name="height" value="773" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,6 +260,10 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,6 +316,32 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WikiSe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikise" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Main.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -381,10 +434,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Tests" />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,7 +443,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.projectsettings.compiler.annotationProcessors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -403,7 +452,7 @@
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -502,6 +551,22 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wikise.util.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WikiSe" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -632,18 +697,20 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Index" />
       <item index="1" class="java.lang.String" itemvalue="Application.TestFileRead" />
       <item index="2" class="java.lang.String" itemvalue="Application.Search" />
       <item index="3" class="java.lang.String" itemvalue="Application.UtilCodes" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Search" />
-        <item index="1" class="java.lang.String" itemvalue="Application.UtilCodes" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Index" />
-        <item index="3" class="java.lang.String" itemvalue="Application.TestFileRead" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="Application.UtilCodes" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Index" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TestFileRead" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -696,6 +763,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83136094" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.50110376" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -703,13 +771,12 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23572475" sideWeight="0.49889624" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2662722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18639053" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="99" y="96" width="1168" height="573" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -738,47 +805,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Integer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/SearchThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="494" column="0" selection-start="17980" selection-end="17980" vertical-scroll-proportion="0.0" vertical-offset="7410" max-vertical-offset="18750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="74" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2310">
+        <state line="37" column="12" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="6" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="7230" />
+        <state line="47" column="5" selection-start="770" selection-end="1164" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="825">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="23" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="1837" selection-end="1837" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="2205">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="368" column="24" selection-start="13719" selection-end="13719" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="7125" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
@@ -795,9 +838,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
@@ -814,9 +855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
@@ -833,9 +872,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
@@ -852,9 +889,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
@@ -876,23 +911,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="32" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="240">
-          <folding />
-        </state>
+        <state line="7" column="32" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="240" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="5" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="240">
-          <folding />
-        </state>
+        <state line="8" column="5" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="240" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
-          <folding />
-        </state>
+        <state line="10" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240" />
       </provider>
     </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/ClassLoader.java">
@@ -908,26 +937,6 @@
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/util/regex/Pattern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="762" column="19" selection-start="39124" selection-end="39124" vertical-scroll-proportion="-2.1188118" vertical-offset="11821" max-vertical-offset="84270" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.35211268" vertical-offset="0" max-vertical-offset="615">
-          <folding>
-            <element signature="e#201#202#0" expanded="false" />
-            <element signature="e#230#231#0" expanded="false" />
-            <element signature="e#274#275#0" expanded="false" />
-            <element signature="e#310#311#0" expanded="false" />
-            <element signature="e#347#348#0" expanded="false" />
-            <element signature="e#380#381#0" expanded="false" />
-            <element signature="e#432#433#0" expanded="false" />
-            <element signature="e#476#477#0" expanded="false" />
-            <element signature="e#511#512#0" expanded="false" />
-            <element signature="e#542#543#0" expanded="false" />
-            <element signature="e#590#591#0" expanded="false" />
-            <element signature="e#630#631#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/String.java">
@@ -970,18 +979,9 @@
         <state line="266" column="16" selection-start="9565" selection-end="9565" vertical-scroll-proportion="-5.818182" vertical-offset="7226" max-vertical-offset="7875" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="26" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="248" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/HashedFileIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="12" selection-start="2721" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="2520">
-          <folding />
-        </state>
+        <state line="82" column="12" selection-start="2721" selection-end="2753" vertical-scroll-proportion="0.0" vertical-offset="1008" max-vertical-offset="2520" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/search/HashedFileReadIO.java">
@@ -993,16 +993,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/HashedTrie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="7" selection-start="483" selection-end="483" vertical-scroll-proportion="-0.092449926" vertical-offset="345" max-vertical-offset="1920">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="34" selection-start="5585" selection-end="5585" vertical-scroll-proportion="0.78582436" vertical-offset="1680" max-vertical-offset="3420">
-          <folding />
-        </state>
+        <state line="23" column="7" selection-start="483" selection-end="483" vertical-scroll-proportion="-0.092449926" vertical-offset="345" max-vertical-offset="1920" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/process/TermObject.java">
@@ -1012,27 +1003,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="319" selection-end="319" vertical-scroll-proportion="0.38626608" vertical-offset="0" max-vertical-offset="466">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/FileIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="24" selection-start="8926" selection-end="8926" vertical-scroll-proportion="0.0" vertical-offset="3326" max-vertical-offset="6000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/UtilCodes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="60" selection-start="9594" selection-end="9594" vertical-scroll-proportion="0.0" vertical-offset="3432" max-vertical-offset="4065">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="237" column="60" selection-start="9594" selection-end="9594" vertical-scroll-proportion="0.0" vertical-offset="3432" max-vertical-offset="4065" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/CompressionDecompression.java">
@@ -1044,33 +1017,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/FileIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="35" selection-start="2198" selection-end="2217" vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="6000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/process/WikiTextParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="37" selection-start="561" selection-end="562" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8670">
+        <state line="551" column="0" selection-start="19774" selection-end="19774" vertical-scroll-proportion="0.12172573" vertical-offset="8021" max-vertical-offset="8670">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="37" selection-start="253" selection-end="253" vertical-scroll-proportion="0.2311248" vertical-offset="0" max-vertical-offset="900" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiPageConcise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="231" selection-end="231" vertical-scroll-proportion="0.2777778" vertical-offset="0" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiSAXParseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="3" selection-start="380" selection-end="380" vertical-scroll-proportion="0.09259259" vertical-offset="0" max-vertical-offset="3420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/parse/WikiParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="33" selection-start="874" selection-end="874" vertical-scroll-proportion="0.2191358" vertical-offset="248" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/index/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="47" selection-start="225" selection-end="225" vertical-scroll-proportion="0.23219815" vertical-offset="0" max-vertical-offset="646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="438" column="19" selection-start="15829" selection-end="15829" vertical-scroll-proportion="0.3326613" vertical-offset="6060" max-vertical-offset="17325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="37" selection-start="634" selection-end="634" vertical-scroll-proportion="0.13690476" vertical-offset="306" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/SearchThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="12" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/util/Classifiers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="34" selection-start="10447" selection-end="10447" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="3315">
+        <state line="116" column="37" selection-start="10524" selection-end="10524" vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="3375">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="7260">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="18" selection-start="14186" selection-end="14186" vertical-scroll-proportion="0.38366717" vertical-offset="5676" max-vertical-offset="7590">
-          <folding />
+        <state line="110" column="17" selection-start="5049" selection-end="5049" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="7530">
+          <folding>
+            <element signature="e#2995#3011#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wikise/search/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="430" column="26" selection-start="14808" selection-end="14808" vertical-scroll-proportion="0.41291586" vertical-offset="6194" max-vertical-offset="7380">
+          <folding>
+            <element signature="e#7448#7465#0" expanded="true" />
+            <element signature="e#7644#7661#0" expanded="true" />
+            <element signature="e#12655#12663#0" expanded="true" />
+            <element signature="e#14695#14711#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,6 +1130,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>DeviloCopyright</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

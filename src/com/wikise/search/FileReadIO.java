@@ -5,6 +5,7 @@ import com.wikise.util.CompressionDecompression;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Arpit Bhayani on 31/1/14.
@@ -60,28 +61,25 @@ public class FileReadIO {
      *
      * @param s search query
      * @param searchFieldsForTerms
-     * @return Posting list
+     * @return Search Result
      */
     public ArrayList<String> getPostingList(ArrayList<HashSet<String>> s, HashMap<String, Integer> searchFieldsForTerms) {
 
         try {
             /* In how many words does this doc has appeared ( docId -> count ) */
-            HashMap<String , Integer> documentToWord = new HashMap<String, Integer>();
             HashMap<String , Double> documentToTfIdf = new HashMap<String, Double>();
 
             for ( int i = 0 ; i < 26 ; i++ ) {
+
                 HashSet<String> setOfWords = s.get(i);
                 for ( String searchTerm : setOfWords ) {
 
                     Integer requiredFields = searchFieldsForTerms.get(searchTerm);
-                    if ( Classifiers.isStopword(searchTerm) )
-                        continue;
 
                     if ( requiredFields == null )
                         requiredFields = 40;
 
-                    ArrayList<String> tempList = new ArrayList<String>();
-                    tempList = getPostingsForSingleTerm(searchTerm);
+                    ArrayList<String> tempList = getPostingsForSingleTerm(searchTerm);
                     for ( String entity : tempList ) {
 
                         int length = entity.length();
@@ -112,38 +110,36 @@ public class FileReadIO {
                                 oldTfidf = Double.valueOf(0);
                             Double newTfIdf = tfidf(termFrequency , tempList.size() );
 
+                            //if ( (bitRepresentation & 32) != 0 ) {
+                            //    newTfIdf *= 32;
+                            //}
+                            //median.addNumberToStream(newTfIdf);
+
                             if ( newTfIdf > oldTfidf )
                                 documentToTfIdf.put(docIdStr , newTfIdf );
 
-                            Integer count = documentToWord.get(docIdStr);
-                            if ( count == null ) {
-                                count = 0;
-                            }
-
-                            ++count;
-                            documentToWord.put( docIdStr , count);
                         }
                     }
                 }
             }
 
             ArrayList<String> docIds = new ArrayList<String>();
-            int K = 15;
+            int K = 10;
 
             if ( documentToTfIdf.size() == 0 ) {
-                return docIds;
+                return new ArrayList<String>();
             }
 
-            double maxtfidf = -1;
-            String maxKey = null;
-
             for ( int i = 0 ; i < K ; i++ ) {
+
+                double maxtfidf = -1;
+                String maxKey = null;
 
                 for ( String key : documentToTfIdf.keySet() ) {
 
                     double tfidf = documentToTfIdf.get(key);
 
-                    if ( tfidf > maxtfidf ) {
+                    if ( (tfidf > maxtfidf) ) {
                         maxtfidf = tfidf;
                         maxKey = key;
                     }
@@ -152,12 +148,13 @@ public class FileReadIO {
                 if ( maxtfidf == -1 ) {
                     break;
                 }
+
                 docIds.add(maxKey);
                 documentToTfIdf.put(maxKey , Double.valueOf(-1));
-                maxtfidf = -1;
             }
 
             return docIds;
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -173,7 +170,7 @@ public class FileReadIO {
 
     }
 
-    private ArrayList<String> getPostingsForSingleTerm(String singleTerm) throws IOException {
+    public ArrayList<String> getPostingsForSingleTerm(String singleTerm) throws IOException {
 
         String processedTerm = Classifiers.getStemmedWord(singleTerm);
 

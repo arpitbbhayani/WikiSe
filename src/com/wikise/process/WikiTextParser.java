@@ -37,7 +37,7 @@ public class WikiTextParser {
 
         this.wikiText = wikiPage.getPageText();
         this.wikiPageId = wikiPage.getPageId();
-        this.wikiPageTitle = wikiPage.getPageTitile();
+        this.wikiPageTitle = wikiPage.getPageTitle();
 
         this.setWords = new TreeSet<String>();
 

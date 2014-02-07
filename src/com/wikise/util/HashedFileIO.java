@@ -156,7 +156,7 @@ public class HashedFileIO {
     public void dumpMetaInformation(WikiPageConcise wikiPage) {
 
         try {
-            metaWriter.write(wikiPage.getPageId() + ":" + wikiPage.getPageTitile() + "\n");
+            metaWriter.write(wikiPage.getPageId() + ":" + wikiPage.getPageTitle() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

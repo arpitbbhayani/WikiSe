@@ -81,6 +81,9 @@ public class Classifiers {
 
     public static boolean isStopword(String word) {
 
+        if ( word.length() == 1 ) {
+            return true;
+        }
         if ( stopWordsSet == null ) {
             fillStopWords();
         }
@@ -110,6 +113,7 @@ public class Classifiers {
             stopWordsSet.add("at");
             stopWordsSet.add("be");
             stopWordsSet.add("because");
+            stopWordsSet.add("between");
             stopWordsSet.add("been");
             stopWordsSet.add("best");
             stopWordsSet.add("but");

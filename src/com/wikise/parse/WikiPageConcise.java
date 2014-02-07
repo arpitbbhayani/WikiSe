@@ -6,7 +6,7 @@ package com.wikise.parse;
 public class WikiPageConcise {
 
     String pageId;
-    String pageTitile;
+    String pageTitle;
     String pageText;
 
     public String getPageId() {
@@ -17,12 +17,12 @@ public class WikiPageConcise {
         this.pageId = pageId;
     }
 
-    public String getPageTitile() {
-        return pageTitile;
+    public String getPageTitle() {
+        return pageTitle;
     }
 
-    public void setPageTitile(String pageTitile) {
-        this.pageTitile = pageTitile;
+    public void setPageTitle(String pageTitle) {
+        this.pageTitle = pageTitle;
     }
 
     public String getPageText() {

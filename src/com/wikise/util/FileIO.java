@@ -73,7 +73,7 @@ public class FileIO {
      */
     public void dumpMetaInformation(WikiPageConcise wikiPage, long infoboxSeekLocation) {
         try {
-            metaWriter.write(wikiPage.getPageId() + ":" + infoboxSeekLocation + ":" + wikiPage.getPageTitile() + "\n");
+            metaWriter.write(wikiPage.getPageId() + ":" + infoboxSeekLocation + ":" + wikiPage.getPageTitle() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
