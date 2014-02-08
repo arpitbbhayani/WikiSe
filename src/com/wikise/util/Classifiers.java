@@ -2,6 +2,7 @@ package com.wikise.util;
 
 import com.wikise.process.Stemmer;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -15,6 +16,8 @@ public class Classifiers {
     public static HashSet<String> infoboxSet = null;
 
     private static Stemmer stemmer = null;
+
+    public static Trie unrelatedDocumentsTrie = new Trie();
 
     private static String[] mostFreqWords = {
             "absolute","accept","account","achieve","act","active","actual","add","address","admit","advertise",
@@ -30,6 +33,39 @@ public class Classifiers {
         mostFreqWithStemming = new HashMap<String, String>();
 
         doStemming();
+    }
+
+    public static boolean isUnrelated(String docId) {
+        return unrelatedDocumentsTrie.contains(docId);
+    }
+
+    public static void fillUnrelatedDocuments(String indexFolderPath) {
+
+        String unrelatedDocsPath = "meta/unrelated";
+        BufferedReader unrelatedDocs = null;
+
+        try {
+            unrelatedDocs = new BufferedReader(new FileReader(indexFolderPath + unrelatedDocsPath));
+
+            String line = null;
+
+            while ( (line = unrelatedDocs.readLine())!= null) {
+                unrelatedDocumentsTrie.add(line);
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                unrelatedDocs.close();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private static void fillInfoboxKeywords() {

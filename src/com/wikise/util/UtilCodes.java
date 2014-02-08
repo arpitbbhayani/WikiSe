@@ -235,12 +235,18 @@ public class UtilCodes {
 
         System.out.println("Creating new index from metadata...");
 
-        createSMetadata("/media/devilo/GaMeS aNd SeTuPs/data/meta/metadata.dat" ,
+        /*createSMetadata("/media/devilo/GaMeS aNd SeTuPs/data/meta/metadata.dat" ,
                 "/media/devilo/GaMeS aNd SeTuPs/data/meta/smetadata.dat" ,
                 "/media/devilo/GaMeS aNd SeTuPs/data/meta/ssmetadata.dat" ,
                 "/media/devilo/GaMeS aNd SeTuPs/data/meta/sssmetadata.dat" ,
                 "/media/devilo/GaMeS aNd SeTuPs/data/meta/pagemetadata.dat");
 
+         */
+
+        removeUnrelatedPages("/media/devilo/GaMeS aNd SeTuPs/data/meta/pagemetadata.dat" ,
+                "/media/devilo/GaMeS aNd SeTuPs/data/meta/smetadata.dat",
+                "/media/devilo/GaMeS aNd SeTuPs/data/meta/unrelated",
+                "/media/devilo/GaMeS aNd SeTuPs/data/meta/unrelatedFile");
 
         /*try {
             createCompressedIndex("/media/devilo/GaMeS aNd SeTuPs/data/");
@@ -259,6 +265,76 @@ public class UtilCodes {
         */
 
         System.out.println("sMetadata index created !");
+
+    }
+
+    private static void removeUnrelatedPages(String metaFilePath, String sMetaFilePath , String outputFilePath , String outputFilePathDoc) {
+
+        RandomAccessFile metaFile = null;
+        BufferedReader sMetaFile = null;
+        BufferedWriter fileWriter = null;
+        BufferedWriter fileWriterDoc = null;
+
+        try {
+            metaFile = new RandomAccessFile(metaFilePath , "r");
+            sMetaFile = new BufferedReader(new FileReader(sMetaFilePath));
+            fileWriter = new BufferedWriter(new FileWriter(outputFilePath));
+            fileWriterDoc = new BufferedWriter(new FileWriter(outputFilePathDoc));
+
+            String line = null , sline = null;
+
+            //int count=  0;
+
+            while ( (sline = sMetaFile.readLine())!= null) {
+
+                String[] array = sline.split(":");
+                String docId = array[0];
+                int offset = Integer.parseInt(array[1]);
+
+                metaFile.seek(offset);
+
+                line = metaFile.readLine();
+                String title = line.substring(line.indexOf(':'));
+                //count ++;
+                //if ( count == 8264457) {
+                //    System.out.println("Found");
+                //}
+                //System.out.println("count = " + count);
+
+                if ( title.startsWith(":wikipedia:")) {
+                    fileWriter.write(docId + "\n");
+                    fileWriterDoc.write(title + "\n");
+                }
+                else if ( title.startsWith(":mediawiki:")) {
+                    fileWriter.write(docId + "\n");
+                    fileWriterDoc.write(title + "\n");
+                }
+                else if ( title.startsWith(":template:")) {
+                    fileWriter.write(docId + "\n");
+                    fileWriterDoc.write(title + "\n");
+                }
+                else if ( title.startsWith(":file:")) {
+                    fileWriter.write(docId + "\n");
+                    fileWriterDoc.write(title + "\n");
+                }
+
+            }
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                metaFile.close();
+                sMetaFile.close();
+                fileWriter.close();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     }
 

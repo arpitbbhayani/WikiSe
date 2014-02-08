@@ -100,23 +100,32 @@ public class FileReadIO {
                         }
 
                         String docIdStr = new String(docId);
+
+                        if ( Classifiers.isUnrelated(docIdStr)) {
+                            continue;
+                        }
+
                         if ( ((requiredFields & 32) != 0 && (bitRepresentation & 32) != 0) ||
                                 ((requiredFields & 16) != 0 && (bitRepresentation & 16) != 0) ||
                                 ((requiredFields & 8) != 0 && (bitRepresentation & 8) != 0) ||
                                 ((requiredFields & 4) != 0 && (bitRepresentation & 4) != 0)) {
 
-                            Double oldTfidf = documentToTfIdf.get(docId);
+                            Double oldTfidf = documentToTfIdf.get(docIdStr);
                             if ( oldTfidf == null )
                                 oldTfidf = Double.valueOf(0);
-                            Double newTfIdf = tfidf(termFrequency , tempList.size() );
+                            Double newTfIdf = tfidf(termFrequency , tempList.size() , bitRepresentation);
 
-                            //if ( (bitRepresentation & 32) != 0 ) {
-                            //    newTfIdf *= 32;
+                            if ( (bitRepresentation & 32) != 0 ) {
+                                newTfIdf += 32;
+                            }
+
+                            //if ( docIdStr.equals("22351622") ) {
+                            //    System.out.println("Old : " + oldTfidf + " and new : " + newTfIdf);
                             //}
                             //median.addNumberToStream(newTfIdf);
 
-                            if ( newTfIdf > oldTfidf )
-                                documentToTfIdf.put(docIdStr , newTfIdf );
+                            //if ( newTfIdf > oldTfidf )
+                            documentToTfIdf.put(docIdStr , newTfIdf+oldTfidf );
 
                         }
                     }
@@ -149,6 +158,7 @@ public class FileReadIO {
                     break;
                 }
 
+                //System.out.println("Document : " + maxKey + " tfidf : " + maxtfidf);
                 docIds.add(maxKey);
                 documentToTfIdf.put(maxKey , Double.valueOf(-1));
             }
@@ -164,9 +174,9 @@ public class FileReadIO {
 
     }
 
-    private double tfidf(int tf, int df) {
+    private double tfidf(int tf, int df, int bitRepresentation) {
 
-        return (1+Math.log10(tf)) * Math.log10(14128976/(float)df);
+        return (1+Math.log10(tf) + (bitRepresentation/32) ) * Math.log10(14128976/(float)df);
 
     }
 

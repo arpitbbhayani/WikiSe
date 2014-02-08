@@ -216,7 +216,10 @@ public class Search {
 
         long startTimeMetadata = System.currentTimeMillis();
 
+        System.out.println("Meta loading ...");
+
         wikiSearch.loadPageMetadata();
+        Classifiers.fillUnrelatedDocuments(indexFolderPath);
         //fileReadIO.loadCache();
 
         long stopTimeMetadata = System.currentTimeMillis();
@@ -368,24 +371,34 @@ public class Search {
             String maxDocId = null;
             long maxOffset = 0;
 
-            ArrayList<String> listOfTitles = new ArrayList<String>();
+            ArrayList<StringBuilder> listOfTitles = new ArrayList<StringBuilder>();
 
             int countOf0Title = 0;
 
             for ( String docId : listDocIds ) {
 
                 try {
+
                     String temp = wikiSearch.getWikiPageTitle(docId);
                     int indexOf = temp.indexOf(':');
                     String offset = temp.substring(0,indexOf);
                     String title = temp.substring(indexOf + 1);
 
+                    StringBuilder titlePlusId = new StringBuilder(docId);
+                    titlePlusId.append('-');
+                    titlePlusId.append(title);
+
+
+                    //System.out.println("Page : " + docId + " title : " + title);
+
                     if ( offset.equals("0") || title.indexOf(':') >= 0 ) {
-                        listOfTitles.add(0,title);
+                        //listOfTitles.add(0,title);
+                        listOfTitles.add(0,titlePlusId);
                         countOf0Title ++;
                     }
                     else {
-                        listOfTitles.add(title);
+                        //listOfTitles.add(title);
+                        listOfTitles.add(titlePlusId);
                         if ( maxDocId == null ) {
                             maxDocId = docId;
                             maxOffset = Long.parseLong(offset);
@@ -399,7 +412,7 @@ public class Search {
 
 
             for ( int j = 0 ; j < countOf0Title ; j++ ) {
-                String s = listOfTitles.remove(0);
+                StringBuilder s = listOfTitles.remove(0);
                 listOfTitles.add(listOfTitles.size() , s);
             }
 
@@ -411,6 +424,7 @@ public class Search {
             for ( int j = 0 ; j < limit ; j++ ) {
                 System.out.println(listOfTitles.get(j));
             }
+
 
             if ( limit == 0 ) {
                 System.out.println("No results found !");
