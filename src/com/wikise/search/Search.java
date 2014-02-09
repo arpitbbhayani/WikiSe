@@ -19,7 +19,7 @@ public class Search {
         this.fileReadIO = fileReadIO;
     }
 
-    private ArrayList<String> search(int numberOfSearchTerms , ArrayList<HashSet<String>> searchTermMap, HashMap<String, Integer> searchFieldsForTerms) {
+    private ArrayList<String> search(int numberOfSearchTerms, ArrayList<HashSet<String>> searchTermMap, HashMap<String, Integer> searchFieldsForTerms) {
 
         if ( numberOfSearchTerms == 0 ) {
             return new ArrayList<String>();
@@ -252,8 +252,11 @@ public class Search {
             String infoboxKey = null;
             boolean isInfoboxQuery = false;
             int numberOfSearchTerms = 0;
+            boolean isMultifieldQuery = true;
 
             String[] searchTokens = searchQuery.split(" ");
+
+            String prevType = null;
 
             for ( String s : searchTokens ) {
 
@@ -273,6 +276,7 @@ public class Search {
                 if ( index == -1 ) {
                     // non field query
 
+                    isMultifieldQuery = false;
                     if ( Classifiers.isStopword(s) )
                         continue;
 
@@ -280,6 +284,48 @@ public class Search {
                     list.add(s);
 
                     numberOfSearchTerms ++;
+
+
+                    if ( prevType != null ) {
+
+                        if ( prevType.equals("t") ) {
+                            Integer val = searchFieldsForTerms.get(s);
+                            if ( val == null )
+                                val = 0;
+                            val = val | TITLE;
+                            searchFieldsForTerms.put(s , val);
+                        }
+                        else if ( prevType.equals("b") ) {
+                            Integer val = searchFieldsForTerms.get(s);
+                            if ( val == null )
+                                val = 0;
+                            val = val | BODY;
+                            searchFieldsForTerms.put(s , val);
+                        }
+                        else if ( prevType.equals("l") ) {
+                            Integer val = searchFieldsForTerms.get(s);
+                            if ( val == null )
+                                val = 0;
+                            val = val | LINKS;
+                            searchFieldsForTerms.put(s , val);
+                        }
+                        else if ( prevType.equals("c") ) {
+                            Integer val = searchFieldsForTerms.get(s);
+                            if ( val == null )
+                                val = 0;
+                            val = val | CATEGORY;
+                            searchFieldsForTerms.put(s , val);
+                        }
+                        else if ( prevType.equals("i") ) {
+                            Integer val = searchFieldsForTerms.get(s);
+                            if ( val == null )
+                                val = 0;
+                            val = val | INFOBOX;
+                            searchFieldsForTerms.put(s , val);
+                        }
+
+                    }
+
 
                 }
                 else {
@@ -302,11 +348,13 @@ public class Search {
 
                     char c = value.charAt(0);
 
+                    index = (int)c - (int)'a';
                     Set<String> list = searchTermMap.get(index);
                     list.add(value);
 
                     if ( type.equals("t") ) {
 
+                        prevType = "t";
                         Integer val = searchFieldsForTerms.get(value);
                         if ( val == null )
                             val = 0;
@@ -316,6 +364,7 @@ public class Search {
                     }
                     else if (type.equals("b")) {
 
+                        prevType = "b";
                         Integer val = searchFieldsForTerms.get(value);
                         if ( val == null )
                             val = 0;
@@ -324,6 +373,7 @@ public class Search {
                     }
                     else if (type.equals("l")) {
 
+                        prevType = "l";
                         Integer val = searchFieldsForTerms.get(value);
                         if ( val == null )
                             val = 0;
@@ -332,6 +382,7 @@ public class Search {
                     }
                     else if (type.equals("i")) {
 
+                        prevType = "i";
                         Integer val = searchFieldsForTerms.get(value);
                         if ( val == null )
                             val = 0;
@@ -340,6 +391,7 @@ public class Search {
                     }
                     else if (type.equals("c")) {
 
+                        prevType = "c";
                         Integer val = searchFieldsForTerms.get(value);
                         if ( val == null )
                             val = 0;
@@ -360,7 +412,24 @@ public class Search {
                 }
             }
 
+            /*System.out.println("search term map : ");
+
+            for ( int j = 0 ; j < 26 ; j++ ) {
+
+                HashSet<String> setOfWords = searchTermMap.get(j);
+                for ( String searchTerm : setOfWords ) {
+                    System.out.println("Search term : " + searchTerm + " j = " + j);
+                }
+            }
+
+            System.out.println("search filed term map : ");
+
+            for ( String key : searchFieldsForTerms.keySet()) {
+                System.out.println("Key : " + key + " fields : " + searchFieldsForTerms.get(key));
+            }*/
+
             ArrayList<String> listDocIds = wikiSearch.search(numberOfSearchTerms , searchTermMap , searchFieldsForTerms);
+            //ArrayList<String> listDocIds = new ArrayList<String>();
 
             if ( listDocIds == null )
                 listDocIds = new ArrayList<String>();

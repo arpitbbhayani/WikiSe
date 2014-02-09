@@ -63,4 +63,4 @@ Statistics:
  - For 46.7 GB of data Wiki XML Dump :
    - Size of index ( primary+secondary ) : 9.7 GB
    - Time to index : 2hr 28min (average)
-   - Time to search : 0.451 sec (average on 100 searches)
+   - Time to search : 0.251 sec (average on 100 searches)

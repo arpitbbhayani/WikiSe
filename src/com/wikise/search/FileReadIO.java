@@ -57,8 +57,6 @@ public class FileReadIO {
     /**
      * Main search function. This function is exposed to the rest of the world.
      * Gets a posting list for a search query (can have multiple words).
-     *
-     *
      * @param s search query
      * @param searchFieldsForTerms
      * @return Search Result
