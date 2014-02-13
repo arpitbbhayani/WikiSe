@@ -132,14 +132,8 @@
       <file leaf-file-name="FileReadIO.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="37" selection-start="6216" selection-end="6216" vertical-scroll-proportion="2.006579" vertical-offset="1140" max-vertical-offset="7650">
-              <folding>
-                <element signature="e#2981#2997#0" expanded="true" />
-                <element signature="e#5945#5953#0" expanded="true" />
-                <element signature="e#8520#8528#0" expanded="true" />
-                <element signature="e#15537#15545#0" expanded="true" />
-                <element signature="e#16607#16616#0" expanded="true" />
-              </folding>
+            <state line="142" column="37" selection-start="6216" selection-end="6216" vertical-scroll-proportion="-3.9473684" vertical-offset="2130" max-vertical-offset="7650">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -574,19 +568,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -612,6 +593,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -741,7 +735,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988167" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23572475" sideWeight="0.49889624" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28698224" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.9334319" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="99" y="96" width="1168" height="573" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1075,14 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wikise/search/FileReadIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="37" selection-start="6216" selection-end="6216" vertical-scroll-proportion="2.006579" vertical-offset="1140" max-vertical-offset="7650">
-          <folding>
-            <element signature="e#2981#2997#0" expanded="true" />
-            <element signature="e#5945#5953#0" expanded="true" />
-            <element signature="e#8520#8528#0" expanded="true" />
-            <element signature="e#15537#15545#0" expanded="true" />
-            <element signature="e#16607#16616#0" expanded="true" />
-          </folding>
+        <state line="142" column="37" selection-start="6216" selection-end="6216" vertical-scroll-proportion="-3.9473684" vertical-offset="2130" max-vertical-offset="7650">
+          <folding />
         </state>
       </provider>
     </entry>
