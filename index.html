@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Wikise by arpitbbhayani</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Wikise</h1>
+        <p>A wikipedia search engine that is completely built in Java and works on Wikipedia XML dumps</p>
+
+        <p class="view"><a href="https://github.com/arpitbbhayani/WikiSe">View the Project on GitHub <small>arpitbbhayani/WikiSe</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/arpitbbhayani/WikiSe/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/arpitbbhayani/WikiSe/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/arpitbbhayani/WikiSe">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="wikise--wikipedia-search-engine" class="anchor" href="#wikise--wikipedia-search-engine" aria-hidden="true"><span class="octicon octicon-link"></span></a>WikiSe : Wikipedia Search Engine</h1>
+
+<pre><code>Arpit Bhayani
+arpit.b.bhayani@gmail.com
+</code></pre>
+
+<p>A wikipedia search engine built using:</p>
+
+<ul>
+<li>Java</li>
+<li>XML Parsing using SAX Parser.</li>
+<li>Ranking Algorithms</li>
+</ul>
+
+<p>It works on Wikipedia XML dumps.<br>
+XML Dump Name : enwiki-latest-pages-articles.xml.bz2<br>
+XML Dump Link : <a href="http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2">http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2</a><br></p>
+
+<p>Implementation basic:<br>
+High level of indexing which reduces the search time.<br>
+The index terms are hashed to characters 'a' - 'z'<br>
+Index is compressed at bitlevel. ( total size = 9.7GB )<br>
+Special infobox parsing to provide direct answeres if possible.<br></p>
+
+<p>Special Features :
+1. Index compression to make index half of its size. ( bit level compression )
+2. Special search fields provided so that user can directly search info infobox.</p>
+
+<p>e.g. Search Query : website:mumbai</p>
+
+<p>Title : mumbai<br>
+Title : mumbai indians<br>
+Title : 2012-13 mumbai f.c. season<br>
+Title : 2008 mumbai attacks<br>
+Title : maharashtra<br>
+Title : public transport in mumbai<br>
+Title : attribution of the 2008 mumbai attacks<br>
+Title : list of constituencies of maharashtra vidhan sabha<br>
+Title : wikipedia:files for deletion/2010 april 13<br>
+Title : list of colleges in mumbai<br>
+****** {{url|www.mcgm.gov.in}} ******               &lt;------ Website link</p>
+
+<p>Interesting search :
+pratieik
+chudail
+joey tribbiani
+cartoon</p>
+
+<p>nick:phoebe buffay
+powers:batman
+age:dimple kapadia
+population:amravati
+location:takla lake
+portrayer:joey tribbiani
+series:joey tribbiani
+t:priyanka
+t:priyanka age:priyanka</p>
+
+<p>Statistics:
+ On a mchine of configuration :
+    Lenovo Z580 , 4 GB of RAM , 5400rpm hard-disk</p>
+
+<ul>
+<li>For 100 MB of data
+
+<ul>
+<li>Size of index ( primary+secondary ) : 24.3 MB</li>
+<li>Time to primary index : 9.031 sec</li>
+<li>Time to secondary index : 1.041 sec</li>
+<li>Time to search : 0.007 sec</li>
+</ul>
+</li>
+<li>For 46.7 GB of data Wiki XML Dump :
+
+<ul>
+<li>Size of index ( primary+secondary ) : 9.7 GB</li>
+<li>Time to index : 2hr 28min (average)</li>
+<li>Time to search : 0.251 sec (average on 100 searches)</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/arpitbbhayani">arpitbbhayani</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
