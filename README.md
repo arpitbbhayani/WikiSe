@@ -37,10 +37,10 @@ Title : list of colleges in mumbai<br/>
 ****** {{url|www.mcgm.gov.in}} ******				<------ Website link
 
 Interesting search :
-pratieik
-chudail
-joey tribbiani
-cartoon
+- pratieik
+- chudail
+- joey tribbiani
+- cartoon
 
 nick:phoebe buffay
 powers:batman
