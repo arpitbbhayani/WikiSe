@@ -1,8 +1,7 @@
 WikiSe : Wikipedia Search Engine
 ====================================
 	Arpit Bhayani
-	arpit.b.bhayani@gmail.com
-
+ 
 A wikipedia search engine built using:
  - Java
  - XML Parsing using SAX Parser.
